@@ -66,5 +66,5 @@
     "explorer.fileNesting.patterns": {
         "*.sln": "*.csproj"
     },
-    "dotnet.defaultSolution": "ComfyJamAutumn2025.sln"
+    "dotnet.defaultSolution": "ComfyJam2025.sln"
 }
