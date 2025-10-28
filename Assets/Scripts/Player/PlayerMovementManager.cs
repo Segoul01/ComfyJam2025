@@ -32,6 +32,8 @@ public class PlayerMovementManager : MonoBehaviour
     [Space(4)]
     [Header("Configurations")]
     [SerializeField] private float staminaDepletionRate;
+    [SerializeField] private float staminaRegenRate;
+    [SerializeField] private float staminaRegenDelay;
     [SerializeField] private float groundCheckRadius;
     [SerializeField] private LayerMask whatIsGround;
 
@@ -42,6 +44,8 @@ public class PlayerMovementManager : MonoBehaviour
 
     private Vector2 moveInput;
     private float moveForce;
+    private float staminaRegenDelayProgress;
+    private bool canRegenStamina;
 
 
     // --------------------------------------------------------------------------------------------------
@@ -52,6 +56,7 @@ public class PlayerMovementManager : MonoBehaviour
     public float currentStamina { get; private set; }
     public bool isGrounded { get; private set; }
     public bool isSprinting { get; private set; }
+    public bool isRegeneratingStamina { get; private set; }
 
 
     // -------------------------------------------------x-------------------------------------------------
@@ -70,7 +75,9 @@ public class PlayerMovementManager : MonoBehaviour
         CheckForMoveInput();
         CheckForSprintAction();
         CheckForJumpAction();
+        TryRegenerateStamina();
     }
+
 
     private void CheckForMoveInput()
     {
@@ -127,7 +134,7 @@ public class PlayerMovementManager : MonoBehaviour
             isSprinting = false;
         }
     }
-    
+
 
     private void TryJump()
     {
@@ -135,6 +142,36 @@ public class PlayerMovementManager : MonoBehaviour
             return;
 
         rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+    }
+
+
+    private void ResetStaminaRegenDelayProgress()
+    {
+        staminaRegenDelayProgress = staminaRegenDelay;
+    }
+
+
+    private void TryRegenerateStamina()
+    {
+        if (isSprinting)
+        {
+            ResetStaminaRegenDelayProgress();
+            isRegeneratingStamina = false;
+            return;
+        }
+
+        if (staminaRegenDelayProgress > 0) staminaRegenDelayProgress -= Time.deltaTime;
+        else if (currentStamina < MAXSTAMINA) RegenerateStamina();
+        else isRegeneratingStamina = false;
+    }
+    
+
+    private void RegenerateStamina()
+    {
+        isRegeneratingStamina = true;
+        currentStamina += Time.deltaTime * staminaRegenRate;
+
+        if (currentStamina > MAXSTAMINA) currentStamina = MAXSTAMINA;
     }
 
 
