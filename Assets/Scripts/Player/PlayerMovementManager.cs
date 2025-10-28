@@ -63,6 +63,15 @@ public class PlayerMovementManager : MonoBehaviour
 
     #region Methods
 
+
+    private void Awake()
+    {
+        moveAction      = InputSystem.actions.FindAction("Move");
+        jumpAction      = InputSystem.actions.FindAction("Jump");
+        sprintAction    = InputSystem.actions.FindAction("Sprint");
+    }
+
+
     private void Start()
     {
         SetStamina(MAXSTAMINA);
@@ -77,6 +86,8 @@ public class PlayerMovementManager : MonoBehaviour
         CheckForSprintAction();
         CheckForJumpAction();
         TryRegenerateStamina();
+
+        Debug.Log("stamina: " + currentStamina + " || regenProgress: " + staminaRegenDelayProgress);
     }
 
 
