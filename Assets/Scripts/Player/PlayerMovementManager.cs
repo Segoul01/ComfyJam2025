@@ -45,7 +45,6 @@ public class PlayerMovementManager : MonoBehaviour
     private Vector2 moveInput;
     private float moveForce;
     private float staminaRegenDelayProgress;
-    private bool canRegenStamina;
 
 
     // --------------------------------------------------------------------------------------------------
@@ -67,11 +66,13 @@ public class PlayerMovementManager : MonoBehaviour
     private void Start()
     {
         SetStamina(MAXSTAMINA);
+        ResetStaminaRegenDelayProgress();
     }
 
 
     private void Update()
     {
+        CheckForGrounded();
         CheckForMoveInput();
         CheckForSprintAction();
         CheckForJumpAction();
@@ -164,7 +165,7 @@ public class PlayerMovementManager : MonoBehaviour
         else if (currentStamina < MAXSTAMINA) RegenerateStamina();
         else isRegeneratingStamina = false;
     }
-    
+
 
     private void RegenerateStamina()
     {
@@ -172,6 +173,17 @@ public class PlayerMovementManager : MonoBehaviour
         currentStamina += Time.deltaTime * staminaRegenRate;
 
         if (currentStamina > MAXSTAMINA) currentStamina = MAXSTAMINA;
+    }
+
+
+    private void CheckForGrounded()
+    {
+        isGrounded = Physics2D.Raycast(
+            groundCheckTransform.position,
+            Vector2.down,
+            groundCheckRadius,
+            whatIsGround
+            );
     }
 
 
@@ -186,5 +198,6 @@ public class PlayerMovementManager : MonoBehaviour
         inputActions.FindActionMap("Player").Disable();
     }
 
+    // -------------------------------------------------x-------------------------------------------------
     #endregion
 }
