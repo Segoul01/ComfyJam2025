@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b13a725e34e0ffa4f96c9368b9507477, type: 3}
   m_Name: Letter1
   m_EditorClassIdentifier: Assembly-CSharp::LetterData
-  houseID: 0
-  title: 
-  sender: 
-  receiver: 
-  content: 
+  houseID: 1
+  title: test1
+  sender: amelia
+  receiver: James
+  content: hello
