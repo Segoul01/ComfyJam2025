@@ -24,10 +24,16 @@ public class PlayerMovementManager : MonoBehaviour
     [SerializeField] private Transform groundCheckTransform;
 
     [Space(4)]
+    [Header("Animation Variables")]
+    [SerializeField] private Animator animator;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+
+    [Space(4)]
     [Header("Movement Variables")]
     [SerializeField] private float moveForceWalking;
     [SerializeField] private float moveForceSprinting;
     [SerializeField] private float jumpForce;
+    [SerializeField] private float maxHorizontalSpeed = 8f;
 
     [Space(4)]
     [Header("Configurations")]
@@ -46,6 +52,14 @@ public class PlayerMovementManager : MonoBehaviour
     private float moveForce;
     private float staminaRegenDelayProgress;
 
+    private const float animSmoothTime = 0.08f;
+
+    private static readonly int ANIM_SPEED = Animator.StringToHash("Speed");
+    private static readonly int ANIM_IS_GROUNDED = Animator.StringToHash("IsGrounded");
+    private static readonly int ANIM_IS_SPRINTING = Animator.StringToHash("IsSprinting");
+    private static readonly int ANIM_HORZ = Animator.StringToHash("Horizontal");
+    private static readonly int ANIM_VERT = Animator.StringToHash("Vertical");
+    private static readonly int ANIM_JUMP_TRIGGER = Animator.StringToHash("JumpTrigger");
 
     // --------------------------------------------------------------------------------------------------
     // (Public) Properties
@@ -86,6 +100,7 @@ public class PlayerMovementManager : MonoBehaviour
         CheckForSprintAction();
         CheckForJumpAction();
         TryRegenerateStamina();
+        UpdateAnimator();
 
         Debug.Log("stamina: " + currentStamina + " || regenProgress: " + staminaRegenDelayProgress);
     }
@@ -154,6 +169,11 @@ public class PlayerMovementManager : MonoBehaviour
             return;
 
         rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+
+        if (animator != null)
+        {
+            animator.SetTrigger(ANIM_JUMP_TRIGGER);
+        }
     }
 
 
@@ -195,6 +215,37 @@ public class PlayerMovementManager : MonoBehaviour
             groundCheckRadius,
             whatIsGround
             );
+    }
+
+    private void UpdateAnimator()
+    {
+        if (animator == null) return;
+
+        float physSpeed = 0f;
+        if (rb != null)
+        {
+            physSpeed = Mathf.Abs(rb.linearVelocity.x) / Mathf.Max(0.0001f, maxHorizontalSpeed);
+            physSpeed = Mathf.Clamp01(physSpeed);
+        }
+
+        animator.SetFloat(ANIM_SPEED, physSpeed, animSmoothTime, Time.deltaTime);
+        animator.SetBool(ANIM_IS_GROUNDED, isGrounded);
+        animator.SetBool(ANIM_IS_SPRINTING, isSprinting);
+        animator.SetFloat(ANIM_HORZ, moveInput.x, animSmoothTime, Time.deltaTime);
+
+        float verticalVel = rb != null ? rb.linearVelocity.y : moveInput.y;
+        animator.SetFloat(ANIM_VERT, verticalVel, animSmoothTime, Time.deltaTime);
+
+        if (moveInput.x > 0.01f)
+        {
+            if (spriteRenderer != null) spriteRenderer.flipX = false;
+            else transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+        else if (moveInput.x < -0.01f)
+        {
+            if (spriteRenderer != null) spriteRenderer.flipX = true;
+            else transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
     }
 
 
