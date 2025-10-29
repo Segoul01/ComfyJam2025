@@ -8,11 +8,14 @@ public class InputManager : MonoBehaviour
     [SerializeField] private InputActionAsset inputActions;
     [SerializeField] private string DefaultActionMap;
 
+
     private void Awake()
     {
         if (Instance) Destroy(gameObject);
         else Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
+
 
     void OnEnable()
     {
@@ -20,12 +23,15 @@ public class InputManager : MonoBehaviour
         inputActions.FindActionMap(DefaultActionMap).Enable();
     }
 
+
     void OnDisable()
     {
         inputActions.FindActionMap(currentActionMap).Disable();
     }
 
+
     public InputActionAsset GetInputActions() => inputActions;
+
 
     public void SwitchActionMap(string newActionMap)
     {

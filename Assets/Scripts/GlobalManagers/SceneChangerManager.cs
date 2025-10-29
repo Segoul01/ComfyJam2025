@@ -49,7 +49,7 @@ public class SceneChangerManager : MonoBehaviour
     {
         if (persistAcrossScenes)
         {
-            SceneChangerManager[] existing = FindObjectsOfType<SceneChangerManager>();
+            SceneChangerManager[] existing = FindObjectsByType<SceneChangerManager>(FindObjectsSortMode.None);
             if (existing.Length > 1)
             {
                 Destroy(gameObject);
