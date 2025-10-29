@@ -43,7 +43,7 @@ public class PauseMenuManager : MonoBehaviour
 
 
     // Show the Pause Menu
-    private void ShowPauseMenu()
+    public void ShowPauseMenu()
     {
         PauseManager.Instance.PauseGame();
         pauseMenu?.SetActive(true);
@@ -51,7 +51,7 @@ public class PauseMenuManager : MonoBehaviour
     
     
     // Remove the Pause Menu
-    private void HidePauseMenu()
+    public void HidePauseMenu()
     {
         PauseManager.Instance.UnPauseGame();
         pauseMenu?.SetActive(false);
