@@ -19,7 +19,7 @@ public class PlayerMovementManager : MonoBehaviour
     // --------------------------------------------------------------------------------------------------
 
     [Header("References")]
-    [SerializeField] private InputActionAsset inputActions;
+    private InputActionAsset inputActions;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheckTransform;
 
@@ -80,6 +80,7 @@ public class PlayerMovementManager : MonoBehaviour
 
     private void Awake()
     {
+        inputActions    = InputManager.Instance.GetInputActions();
         moveAction      = InputSystem.actions.FindAction("Move");
         jumpAction      = InputSystem.actions.FindAction("Jump");
         sprintAction    = InputSystem.actions.FindAction("Sprint");
@@ -102,7 +103,7 @@ public class PlayerMovementManager : MonoBehaviour
         TryRegenerateStamina();
         UpdateAnimator();
 
-        Debug.Log("stamina: " + currentStamina + " || regenProgress: " + staminaRegenDelayProgress);
+        // Debug.Log("stamina: " + currentStamina + " || regenProgress: " + staminaRegenDelayProgress);
     }
 
 
@@ -248,17 +249,6 @@ public class PlayerMovementManager : MonoBehaviour
         }
     }
 
-
-    void OnEnable()
-    {
-        inputActions.FindActionMap("Player").Enable();
-    }
-
-
-    void OnDisable()
-    {
-        inputActions.FindActionMap("Player").Disable();
-    }
 
     // -------------------------------------------------x-------------------------------------------------
     #endregion
