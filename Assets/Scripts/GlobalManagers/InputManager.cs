@@ -28,10 +28,22 @@ public class InputManager : MonoBehaviour
     public InputActionAsset GetInputActions() => inputActions;
 
 
-    public void SwitchActionMap(string newActionMap)
+    public void SwitchActionMap(string newActionMap, bool autoEnable = true)
     {
         inputActions.FindActionMap(currentActionMap).Disable();
-        inputActions.FindActionMap(newActionMap).Enable();
+        if (autoEnable) inputActions.FindActionMap(newActionMap).Enable();
         currentActionMap = newActionMap;
+    }
+
+
+    public void DisableAllInputs()
+    {
+        inputActions.FindActionMap(currentActionMap).Disable();
+    }
+
+
+    public void EnableAllInputs()
+    {
+        inputActions.FindActionMap(currentActionMap).Enable();
     }
 }
