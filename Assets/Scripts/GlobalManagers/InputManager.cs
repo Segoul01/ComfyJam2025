@@ -14,11 +14,6 @@ public class InputManager : MonoBehaviour
         if (Instance) Destroy(gameObject);
         else Instance = this;
         DontDestroyOnLoad(gameObject);
-    }
-
-
-    void OnEnable()
-    {
         currentActionMap = DefaultActionMap;
         inputActions.FindActionMap(DefaultActionMap).Enable();
     }
