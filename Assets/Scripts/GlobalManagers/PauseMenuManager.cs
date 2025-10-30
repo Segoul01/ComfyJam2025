@@ -16,8 +16,8 @@ public class PauseMenuManager : MonoBehaviour
         if (Instance) Destroy(gameObject);
         else Instance = this;
 
-        menuOpenAction  = InputSystem.actions.FindAction("MenuOpen");
-        menuCloseAction = InputSystem.actions.FindAction("MenuClose");
+        menuOpenAction  = InputSystem.actions.FindAction("Player/MenuOpen");
+        menuCloseAction = InputSystem.actions.FindAction("UI/MenuClose");
     }
 
 

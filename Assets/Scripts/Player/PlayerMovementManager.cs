@@ -19,7 +19,6 @@ public class PlayerMovementManager : MonoBehaviour
     // --------------------------------------------------------------------------------------------------
 
     [Header("References")]
-    private InputActionAsset inputActions;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheckTransform;
 
@@ -80,10 +79,9 @@ public class PlayerMovementManager : MonoBehaviour
 
     private void Awake()
     {
-        inputActions    = InputManager.Instance.GetInputActions();
-        moveAction      = InputSystem.actions.FindAction("Move");
-        jumpAction      = InputSystem.actions.FindAction("Jump");
-        sprintAction    = InputSystem.actions.FindAction("Sprint");
+        moveAction      = InputSystem.actions.FindAction("Player/Move");
+        jumpAction      = InputSystem.actions.FindAction("Player/Jump");
+        sprintAction    = InputSystem.actions.FindAction("Player/Sprint");
     }
 
 
