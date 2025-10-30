@@ -1081,6 +1081,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1887174013}
   - component: {fileID: 1887174014}
+  - component: {fileID: 1887174016}
+  - component: {fileID: 1887174015}
   m_Layer: 0
   m_Name: StartCutscene
   m_TagString: Untagged
@@ -1124,11 +1126,68 @@ PlayableDirector:
   - key: {fileID: -4329527594565402255, guid: 4d09f921cb3d967428d2f5c9e5316ea4, type: 2}
     value: {fileID: 519420033}
   - key: {fileID: -8777987469696445058, guid: 4d09f921cb3d967428d2f5c9e5316ea4, type: 2}
-    value: {fileID: 7943347930832446329}
+    value: {fileID: 1887174015}
   - key: {fileID: -8608049648918534750, guid: 4d09f921cb3d967428d2f5c9e5316ea4, type: 2}
     value: {fileID: 8792909213073911136}
   m_ExposedReferences:
     m_References: []
+--- !u!114 &1887174015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887174012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalReceiver
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: df802300bf50e9e4484f5e85c36ada56, type: 2}
+    - {fileID: 11400000, guid: 7d80349042a62f2499c94491b3ce918d, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1887174016}
+          m_TargetAssemblyTypeName: CutsceneInputManager, Assembly-CSharp
+          m_MethodName: DisableInput
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1887174016}
+          m_TargetAssemblyTypeName: CutsceneInputManager, Assembly-CSharp
+          m_MethodName: EnableInput
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1887174016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887174012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66ff84ab2056dcd4e94f9b1066165837, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CutsceneInputManager
 --- !u!1 &1911946981
 GameObject:
   m_ObjectHideFlags: 0
@@ -1593,72 +1652,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5903738533587591850, guid: c15493db32fac434a81eed31a730b530, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7943347930832446329}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c15493db32fac434a81eed31a730b530, type: 3}
---- !u!1 &7943347930832446328 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5903738533587591850, guid: c15493db32fac434a81eed31a730b530, type: 3}
-  m_PrefabInstance: {fileID: 7943347930832446327}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7943347930832446329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7943347930832446328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalReceiver
-  m_Events:
-    m_Signals:
-    - {fileID: 11400000, guid: df802300bf50e9e4484f5e85c36ada56, type: 2}
-    - {fileID: 11400000, guid: 7d80349042a62f2499c94491b3ce918d, type: 2}
-    m_Events:
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7943347930832446330}
-          m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
-          m_MethodName: DisableAllInputs
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7943347930832446330}
-          m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
-          m_MethodName: EnableAllInputs
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
---- !u!114 &7943347930832446330 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4772571334983335368, guid: c15493db32fac434a81eed31a730b530, type: 3}
-  m_PrefabInstance: {fileID: 7943347930832446327}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7943347930832446328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 920936a7aa9cf714e9324e19d363d0d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InputManager
 --- !u!1001 &8792909213073911134
 PrefabInstance:
   m_ObjectHideFlags: 0
