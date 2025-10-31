@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -50,6 +51,8 @@ public class PlayerMovementManager : MonoBehaviour
     private Vector2 moveInput;
     private float moveForce;
     private float staminaRegenDelayProgress;
+
+    private bool cutscenePlayerCanMove;
 
     private const float animSmoothTime = 0.08f;
 
@@ -244,6 +247,28 @@ public class PlayerMovementManager : MonoBehaviour
         {
             if (spriteRenderer != null) spriteRenderer.flipX = true;
             else transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+    }
+
+
+    public void CutscenePlayerRunningStarted()
+    {
+        StartCoroutine("MoveCutscenePlayer");
+    }
+
+    public void CutscenePlayerRunnintStopped()
+    {
+        StopCoroutine("MoveCutscenePlayer");
+    }
+    
+
+    IEnumerator MoveCutscenePlayer()
+    {
+        while (true)
+        {
+            rb.AddForce(transform.right * moveForceWalking * Time.deltaTime * 100f, ForceMode2D.Force);
+
+            yield return null;
         }
     }
 
