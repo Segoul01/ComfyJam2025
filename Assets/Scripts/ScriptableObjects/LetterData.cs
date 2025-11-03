@@ -10,4 +10,7 @@ public class LetterData : ScriptableObject
     
     [TextArea(15,20)]
     public string content;
+
+    [Header("Optional")]
+    public Sprite icon;
 }
