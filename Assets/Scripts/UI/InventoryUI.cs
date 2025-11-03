@@ -119,6 +119,12 @@ public class InventoryUI : MonoBehaviour
             var go = Instantiate(letterButtonPrefab, listParent);
             spawnedButtons.Add(go);
 
+            var rt = go.GetComponent<RectTransform>();
+            rt.localScale = Vector3.one;
+            rt.localRotation = Quaternion.identity;
+            rt.anchorMin = rt.anchorMax = new Vector2(0.5f, 0.5f);
+            rt.pivot = new Vector2(0.5f, 0.5f);
+
             var btn = go.GetComponent<Button>() ?? go.GetComponentInChildren<Button>();
 
             TMP_Text titleTmp = go.GetComponentInChildren<TMP_Text>();

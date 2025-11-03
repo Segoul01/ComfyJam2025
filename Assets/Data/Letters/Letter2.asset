@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Letter2
   m_EditorClassIdentifier: Assembly-CSharp::LetterData
   houseID: 1
-  title: 
-  sender: 
-  receiver: 
-  content: 
+  title: me
+  sender: lol
+  receiver: lmao
+  content: ahahaha
+  icon: {fileID: 0}

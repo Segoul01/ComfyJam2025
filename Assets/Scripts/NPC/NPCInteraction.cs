@@ -67,7 +67,7 @@ public class NPCInteraction : MonoBehaviour
         if (DialogueManager.Instance != null)
             DialogueManager.Instance.StartDialogue(startDialogueLines, OnDialogueComplete);
         else
-            OnDialogueComplete(); // fallback
+            OnDialogueComplete();
     }
 
     private void OnDialogueComplete()
