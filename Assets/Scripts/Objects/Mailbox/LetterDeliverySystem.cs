@@ -15,7 +15,7 @@ public class LetterDeliverySystem : MonoBehaviour
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        playerMovement = FindObjectOfType<PlayerMovementManager>();
+        playerMovement = FindFirstObjectByType<PlayerMovementManager>();
 
     }
 

@@ -90,9 +90,10 @@ public class InventoryUI : MonoBehaviour
 
         if (isOpenForDelivery)
         {
-            var player = FindAnyObjectByType<PlayerMovementManager>();
-            if (player != null)
-                player.SetMovementLocked(true);
+            // var player = FindAnyObjectByType<PlayerMovementManager>();
+            // if (player != null)
+            //     player.SetMovementLocked(true);
+            InputManager.Instance.SwitchActionMap("UI");
         }
 
         PopulateList();
@@ -297,9 +298,10 @@ public class InventoryUI : MonoBehaviour
         isOpenForDelivery = false;
         openedAsGeneralInventory = false;
 
-        var player = FindAnyObjectByType<PlayerMovementManager>();
-        if (player != null)
-            player.SetMovementLocked(false);
+        // var player = FindAnyObjectByType<PlayerMovementManager>();
+        // if (player != null)
+        //     player.SetMovementLocked(false);
+        InputManager.Instance.SwitchActionMap("Player");
     }
 
     public void ForceCloseIfForRecipient(int houseID)

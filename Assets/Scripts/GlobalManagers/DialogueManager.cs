@@ -56,9 +56,11 @@ public class DialogueManager : MonoBehaviour
         if (dialogPanel != null)
             dialogPanel.SetActive(true);
 
-        var player = FindAnyObjectByType<PlayerMovementManager>();
-        if (player != null)
-            player.SetMovementLocked(true);
+        // var player = FindAnyObjectByType<PlayerMovementManager>();
+        // if (player != null)
+        //     player.SetMovementLocked(true);
+
+        InputManager.Instance.SwitchActionMap("UI");
 
         ShowNextLine();
     }
@@ -82,9 +84,11 @@ public class DialogueManager : MonoBehaviour
             dialogPanel.SetActive(false);
 
 
-        var player = FindAnyObjectByType<PlayerMovementManager>();
-        if (player != null)
-            player.SetMovementLocked(false);
+        // var player = FindAnyObjectByType<PlayerMovementManager>();
+        // if (player != null)
+        //     player.SetMovementLocked(false);
+
+        InputManager.Instance.SwitchActionMap("Player");
 
         onCompleteCallback?.Invoke();
         onCompleteCallback = null;

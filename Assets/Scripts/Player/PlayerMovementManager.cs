@@ -54,7 +54,7 @@ public class PlayerMovementManager : MonoBehaviour
     private float moveForce;
     private float staminaRegenDelayProgress;
 
-    private bool cutscenePlayerCanMove;
+    private bool isCutscenePlaying;
 
     private const float animSmoothTime = 0.08f;
 
@@ -99,7 +99,7 @@ public class PlayerMovementManager : MonoBehaviour
 
     private void Update()
     {
-        CheckMovementLock();
+        // CheckMovementLock();
         CheckForGrounded();
         CheckForMoveInput();
         CheckForSprintAction();
@@ -139,41 +139,45 @@ public class PlayerMovementManager : MonoBehaviour
         moveForce = force;
     }
 
-    public void SetMovementLocked(bool value)
-    {
-        movementLocked = value;
+    // public void SetMovementLocked(bool value)
+    // {
+    //     movementLocked = value;
 
-        if (movementLocked && rb != null)
-        {
-            rb.linearVelocity = Vector2.zero;
-            animator?.SetFloat(ANIM_SPEED, 0f);
+    //     if (movementLocked && rb != null)
+    //     {
+    //         rb.linearVelocity = Vector2.zero;
+    //         animator?.SetFloat(ANIM_SPEED, 0f);
 
-        }
-    }
+    //     }
+    // }
 
-    public bool IsMovementLocked()
-    {
-        return movementLocked;
-    }
+    // public bool IsMovementLocked()
+    // {
+    //     return movementLocked;
+    // }
 
-    private void CheckMovementLock()
-    {
-        if (movementLocked)
-        {
-            rb.linearVelocity = Vector2.zero;
-            animator?.SetFloat(ANIM_SPEED, 0f);
-            moveAction.Disable();
-            sprintAction.Disable();
-            jumpAction.Disable();
-            return;
-        }
-        else
-        {
-            moveAction.Enable();
-            sprintAction.Enable();
-            jumpAction.Enable();
-        }
-    }
+    // private void CheckMovementLock()
+    // {
+    //     if (isCutscenePlaying) return;
+
+    //     if (movementLocked)
+    //     {
+    //         rb.linearVelocity = Vector2.zero;
+    //         animator?.SetFloat(ANIM_SPEED, 0f);
+    //         // moveAction.Disable();
+    //         // sprintAction.Disable();
+    //         // jumpAction.Disable();
+    //         InputManager.Instance.SwitchActionMap("UI");
+    //         return;
+    //     }
+    //     else
+    //     {
+    //         // moveAction.Enable();
+    //         // sprintAction.Enable();
+    //         // jumpAction.Enable();
+    //         InputManager.Instance.SwitchActionMap("Player");
+    //     }
+    // }
 
     public void SetStamina(float value)
     {
@@ -294,9 +298,15 @@ public class PlayerMovementManager : MonoBehaviour
         StartCoroutine("MoveCutscenePlayer");
     }
 
-    public void CutscenePlayerRunnintStopped()
+    public void CutscenePlayerRunningStopped()
     {
         StopCoroutine("MoveCutscenePlayer");
+    }
+
+
+    public void SetCutscenePlayingState(bool value)
+    {
+        isCutscenePlaying = value;
     }
     
 
