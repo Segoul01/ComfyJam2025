@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b13a725e34e0ffa4f96c9368b9507477, type: 3}
-  m_Name: Letter2
+  m_Name: Lettertest
   m_EditorClassIdentifier: Assembly-CSharp::LetterData
-  houseID: 1
-  title: me
-  sender: lol
-  receiver: lmao
-  content: ahahaha
+  houseID: 5
+  title: i couldnt find a title
+  sender: YY
+  receiver: XX
+  content: "can we talk about the csvsd\u015Fkgmdfgmdsd\xE7kfnmsd"
   icon: {fileID: 0}
