@@ -34,6 +34,9 @@ public class LetterDeliverySystem : MonoBehaviour
         if (ok)
         {
             deliveredHouseIDs.Add(recipientHouseID);
+
+          //  if (TaskManager.Instance != null)
+          //      TaskManager.Instance.NotifyLetterDelivered(letter, recipientHouseID); */
         }
         return ok;
     }
