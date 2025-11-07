@@ -72,7 +72,11 @@ AnimationClip:
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     m_StopTime: 0.41666666
+=======
+    m_StopTime: 0.6666666
+>>>>>>> Stashed changes
 =======
     m_StopTime: 0.6666666
 >>>>>>> Stashed changes
