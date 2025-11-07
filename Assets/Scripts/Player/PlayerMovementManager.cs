@@ -34,7 +34,6 @@ public class PlayerMovementManager : MonoBehaviour
     [SerializeField] private float moveForceSprinting;
     [SerializeField] private float jumpForce;
     [SerializeField] private float maxHorizontalSpeed = 8f;
-    [SerializeField] private bool movementLocked = false;
 
 
     [Space(4)]
@@ -99,7 +98,6 @@ public class PlayerMovementManager : MonoBehaviour
 
     private void Update()
     {
-        // CheckMovementLock();
         CheckForGrounded();
         CheckForMoveInput();
         CheckForSprintAction();
@@ -139,45 +137,6 @@ public class PlayerMovementManager : MonoBehaviour
         moveForce = force;
     }
 
-    // public void SetMovementLocked(bool value)
-    // {
-    //     movementLocked = value;
-
-    //     if (movementLocked && rb != null)
-    //     {
-    //         rb.linearVelocity = Vector2.zero;
-    //         animator?.SetFloat(ANIM_SPEED, 0f);
-
-    //     }
-    // }
-
-    // public bool IsMovementLocked()
-    // {
-    //     return movementLocked;
-    // }
-
-    // private void CheckMovementLock()
-    // {
-    //     if (isCutscenePlaying) return;
-
-    //     if (movementLocked)
-    //     {
-    //         rb.linearVelocity = Vector2.zero;
-    //         animator?.SetFloat(ANIM_SPEED, 0f);
-    //         // moveAction.Disable();
-    //         // sprintAction.Disable();
-    //         // jumpAction.Disable();
-    //         InputManager.Instance.SwitchActionMap("UI");
-    //         return;
-    //     }
-    //     else
-    //     {
-    //         // moveAction.Enable();
-    //         // sprintAction.Enable();
-    //         // jumpAction.Enable();
-    //         InputManager.Instance.SwitchActionMap("Player");
-    //     }
-    // }
 
     public void SetStamina(float value)
     {
