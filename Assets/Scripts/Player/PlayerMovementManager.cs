@@ -51,6 +51,8 @@ public class PlayerMovementManager : MonoBehaviour
 
     private Vector2 moveInput;
     private float moveForce;
+    private float prevVel = 0f;
+
     private float staminaRegenDelayProgress;
 
     private bool isCutscenePlaying;
@@ -225,10 +227,38 @@ public class PlayerMovementManager : MonoBehaviour
         if (animator == null) return;
 
         float physSpeed = 0f;
+
         if (rb != null)
         {
-            physSpeed = Mathf.Abs(rb.linearVelocity.x) / Mathf.Max(0.0001f, maxHorizontalSpeed);
-            physSpeed = Mathf.Clamp01(physSpeed);
+            // check if accelerating
+            if (isCutscenePlaying)
+            {
+                if (rb.linearVelocityX >= prevVel - 2f)
+                {
+                    physSpeed = Mathf.Abs(rb.linearVelocity.x) / Mathf.Max(0.0001f, maxHorizontalSpeed);
+                    physSpeed = Mathf.Clamp01(physSpeed);
+                }
+                else
+                {
+                    physSpeed = 0f;
+                }
+
+            }
+            else
+            {
+                if (moveInput.x != 0)
+                {
+                    physSpeed = Mathf.Abs(rb.linearVelocity.x) / Mathf.Max(0.0001f, maxHorizontalSpeed);
+                    physSpeed = Mathf.Clamp01(physSpeed);
+                }
+                else
+                {
+                    physSpeed = 0f;
+                }
+            }
+
+
+            prevVel = rb.linearVelocityX;
         }
 
         animator.SetFloat(ANIM_SPEED, physSpeed, animSmoothTime, Time.deltaTime);
