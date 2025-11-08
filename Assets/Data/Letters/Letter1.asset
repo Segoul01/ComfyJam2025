@@ -17,3 +17,4 @@ MonoBehaviour:
   sender: amelia
   receiver: James
   content: hello
+  icon: {fileID: -5910690409102988451, guid: a1c8ae348ee689146894f56b3a3c2f4c, type: 3}

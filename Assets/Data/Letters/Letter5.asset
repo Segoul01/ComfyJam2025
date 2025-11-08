@@ -17,3 +17,4 @@ MonoBehaviour:
   sender: 
   receiver: 
   content: 
+  icon: {fileID: 3748159397465755241, guid: 9768f82e6de409446aa9dd852e06514c, type: 3}

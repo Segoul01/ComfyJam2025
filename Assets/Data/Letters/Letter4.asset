@@ -17,4 +17,4 @@ MonoBehaviour:
   sender: x
   receiver: y
   content: i Dont Know
-  icon: {fileID: 0}
+  icon: {fileID: 871593509846785301, guid: b434c5aa15ff8ac418e74f38d954479c, type: 3}
