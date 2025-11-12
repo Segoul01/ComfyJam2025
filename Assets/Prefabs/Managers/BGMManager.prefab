@@ -144,5 +144,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BGMManager
   audioSource: {fileID: 1604654206632681138}
   menuBGM: {fileID: 8300000, guid: 9e1ea07964bf9f64685d9a5a6611c87d, type: 3}
-  inGameBGM: {fileID: 0}
-  volumeFadeRate: 2
+  inGameBGM: {fileID: 8300000, guid: 86d53129a3d27d2419e118983fc2af20, type: 3}
+  volumeFadeRate: 0.1

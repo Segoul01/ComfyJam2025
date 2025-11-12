@@ -22,6 +22,7 @@ public class BGMManager : MonoBehaviour
         else Instance = this;
 
         if (!audioSource) audioSource = GetComponent<AudioSource>();
+        audioSource.volume = 0f;
     }
 
     private void Start()
