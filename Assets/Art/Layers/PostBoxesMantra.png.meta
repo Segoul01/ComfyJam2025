@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 4f64e8dab377ab04da61c67dc4eba6f9
+guid: c2ce56ceb38b3b04e928acd8aefcb5e2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5313848323407514231
-    second: Pixel 1_0
+      213: 4754790401790627893
+    second: PostBoxesMantra_0
+  - first:
+      213: 6955251182713643469
+    second: PostBoxesMantra_1
+  - first:
+      213: -4622528474125391219
+    second: PostBoxesMantra_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Pixel 1_0
+      name: PostBoxesMantra_0
       rect:
         serializedVersion: 2
-        x: 779
-        y: 0
-        width: 281
-        height: 839
+        x: 722
+        y: 52
+        width: 86
+        height: 507
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +121,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9857df49a1b6146b0800000000000000
-      internalID: -5313848323407514231
+      spriteID: 530da20bda86cf140800000000000000
+      internalID: 4754790401790627893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PostBoxesMantra_1
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 56
+        width: 116
+        height: 430
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc12345a914068060800000000000000
+      internalID: 6955251182713643469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PostBoxesMantra_2
+      rect:
+        serializedVersion: 2
+        x: 1101
+        y: 55
+        width: 129
+        height: 570
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8aa0af08da79dfb0800000000000000
+      internalID: -4622528474125391219
       vertices: []
       indices: 
       edges: []
@@ -135,7 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Pixel 1_0: -5313848323407514231
+      PostBoxesMantra_0: 4754790401790627893
+      PostBoxesMantra_1: 6955251182713643469
+      PostBoxesMantra_2: -4622528474125391219
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
