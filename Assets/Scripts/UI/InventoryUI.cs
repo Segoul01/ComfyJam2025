@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,7 +13,7 @@ public class InventoryUI : MonoBehaviour
 
     [Header("Panels")]
     public GameObject inventoryPanel;
-    public Transform listParent; 
+    public Transform listParent;
     public GameObject letterButtonPrefab;
     public GameObject letterFullPanel;
     public TMP_Text fullTitleText;
@@ -33,7 +34,7 @@ public class InventoryUI : MonoBehaviour
     private LetterData selectedLetter;
     private Action<bool, LetterData> onDeliveryResultCallback;
     private List<GameObject> spawnedButtons = new List<GameObject>();
-    private bool isOpenForDelivery = false; 
+    private bool isOpenForDelivery = false;
     private bool openedAsGeneralInventory = false;
 
     private void Awake()
@@ -77,7 +78,7 @@ public class InventoryUI : MonoBehaviour
     }
 
     /// <summary>
-    /// Show inventory for a recipient. If openedAsGeneralInventory == true -> no Give button.
+    /// Show inventory for a recipient. If openedAsGeneralInventory == true -> no direct-deliver behavior.
     /// </summary>
     public void ShowForRecipient(int recipientHouseID, Action<bool, LetterData> resultCallback, bool openedAsGeneralInventory = false)
     {
@@ -107,6 +108,7 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
+
     private void PopulateList()
     {
         ClearList();
@@ -117,30 +119,42 @@ public class InventoryUI : MonoBehaviour
         for (int i = 0; i < letters.Count; i++)
         {
             LetterData l = letters[i];
-            var go = Instantiate(letterButtonPrefab, listParent);
-            spawnedButtons.Add(go);
 
-            var rt = go.GetComponent<RectTransform>();
-            rt.localScale = Vector3.one;
-            rt.localRotation = Quaternion.identity;
-            rt.anchorMin = rt.anchorMax = new Vector2(0.5f, 0.5f);
-            rt.pivot = new Vector2(0.5f, 0.5f);
+            var go = Instantiate(letterButtonPrefab);
+            go.transform.SetParent(listParent, false); // <-- preserves prefab's local position/anchors/pivot
+            spawnedButtons.Add(go);
 
             var btn = go.GetComponent<Button>() ?? go.GetComponentInChildren<Button>();
 
-            TMP_Text titleTmp = go.GetComponentInChildren<TMP_Text>();
-            if (titleTmp == null)
+            TMP_Text senderTmp = null;
+            TMP_Text addressTmp = null;
+
+            var senderTf = go.transform.Find("Sender");
+            if (senderTf != null) senderTmp = senderTf.GetComponent<TMP_Text>();
+
+            var addressTf = go.transform.Find("Address");
+            if (addressTf != null) addressTmp = addressTf.GetComponent<TMP_Text>();
+
+            string maskedSender = string.IsNullOrEmpty(l.sender) ? "[Unknown]" : MaskString(l.sender);
+            string maskedAddress = string.IsNullOrEmpty(l.address) ? "[Unknown]" : MaskString(l.address);
+
+            if (senderTmp != null) senderTmp.text = $"FROM: {maskedSender}";
+            else Debug.LogWarning($"InventoryUI: prefab '{letterButtonPrefab.name}' missing child 'Sender' (TMP_Text).");
+
+            if (addressTmp != null) addressTmp.text = $"ADDRESS: {maskedAddress}";
+            else Debug.LogWarning($"InventoryUI: prefab '{letterButtonPrefab.name}' missing child 'Address' (TMP_Text).");
+
+            var allTmps = go.GetComponentsInChildren<TMP_Text>();
+            foreach (var t in allTmps)
             {
-                var t = go.transform.Find("Title");
-                if (t != null) titleTmp = t.GetComponent<TMP_Text>();
-            }
-            if (titleTmp != null) titleTmp.text = l.title;
-            else
-            {
-                var legacy = go.GetComponentInChildren<Text>();
-                if (legacy != null) legacy.text = l.title;
+                if (t == senderTmp || t == addressTmp) continue;
+                t.text = string.Empty;
             }
 
+            var allLegacy = go.GetComponentsInChildren<Text>();
+            foreach (var t in allLegacy) t.text = string.Empty;
+
+            // Assign icon if you still want it (optional)
             Image iconImg = null;
             var iconTf = go.transform.Find("Icon");
             if (iconTf != null) iconImg = iconTf.GetComponent<Image>();
@@ -157,7 +171,18 @@ public class InventoryUI : MonoBehaviour
             if (iconImg != null && l.icon != null) iconImg.sprite = l.icon;
 
             int idx = i;
-            if (btn != null) btn.onClick.AddListener(() => OnLetterSelected(idx));
+            if (btn != null)
+            {
+                if (isOpenForDelivery)
+                {
+                    var capturedLetter = l;
+                    btn.onClick.AddListener(() => AttemptDeliverFromList(capturedLetter));
+                }
+                else
+                {
+                    btn.onClick.AddListener(() => OnLetterSelected(idx));
+                }
+            }
         }
 
         Canvas.ForceUpdateCanvases();
@@ -169,19 +194,35 @@ public class InventoryUI : MonoBehaviour
             letterScrollRect.verticalNormalizedPosition = 1f;
     }
 
-
     private void ClearList()
     {
-        foreach (var g in spawnedButtons) Destroy(g);
-        spawnedButtons.Clear();
-    }
+        foreach (var g in spawnedButtons)
+        {
+            if (g == null) continue;
 
+            var btn = g.GetComponent<Button>() ?? g.GetComponentInChildren<Button>();
+            if (btn != null) btn.onClick.RemoveAllListeners();
+
+            var imgs = g.GetComponentsInChildren<Image>();
+            foreach (var im in imgs) if (im != null) im.sprite = null;
+
+            var tmps = g.GetComponentsInChildren<TMP_Text>();
+            foreach (var t in tmps) t.text = string.Empty;
+            var legacy = g.GetComponentsInChildren<Text>();
+            foreach (var t in legacy) t.text = string.Empty;
+
+            Destroy(g);
+        }
+        spawnedButtons.Clear();
+
+        StartCoroutine(UnloadUnusedAssetsCoroutine());
+    }
     private void OnLetterSelected(int index)
     {
         var letters = playerInventory.GetLetters();
         if (index < 0 || index >= letters.Count) return;
         selectedLetter = letters[index];
-        ShowFullLetter(selectedLetter);
+       // ShowFullLetter(selectedLetter);
     }
 
     private void ShowFullLetter(LetterData letter)
@@ -201,15 +242,26 @@ public class InventoryUI : MonoBehaviour
                 }
             }
 
-            if (fullContentText != null) fullContentText.text = $"From: {letter.sender}\nTo: {letter.receiver}\n\n{letter.content}";
+            // We are not revealing the body — show masked sender/receiver/address
+            string maskedSender = MaskString(letter.sender);
+            string maskedReceiver = MaskString(letter.receiver);
+            string maskedAddress = string.IsNullOrEmpty(letter.address) ? "" : MaskString(letter.address);
+
+            string display = $"From: {maskedSender}\nTo:   {maskedReceiver}";
+            if (!string.IsNullOrEmpty(maskedAddress))
+                display += $"\nAddr: {maskedAddress}";
+
+            display += "\n\n[Content hidden]";
+
+            if (fullContentText != null) fullContentText.text = display;
             else
             {
                 var c1 = letterFullPanel.transform.Find("Content")?.GetComponent<TMP_Text>();
-                if (c1 != null) c1.text = $"From: {letter.sender}\nTo: {letter.receiver}\n\n{letter.content}";
+                if (c1 != null) c1.text = display;
                 else
                 {
                     var c2 = letterFullPanel.GetComponentInChildren<Text>();
-                    if (c2 != null) c2.text = $"From: {letter.sender}\nTo: {letter.receiver}\n\n{letter.content}";
+                    if (c2 != null) c2.text = display;
                 }
             }
 
@@ -274,12 +326,14 @@ public class InventoryUI : MonoBehaviour
             Debug.Log("Delivery failed: " + selectedLetter.title);
         }
 
-        onDeliveryResultCallback?.Invoke(success, selectedLetter);
+        // IMPORTANT: close inventory before invoking callback so dialog/UI won't overlap and break.
+        var cb = onDeliveryResultCallback;
         CloseInventory();
+        cb?.Invoke(success, selectedLetter);
     }
 
     private void OnCancelClicked()
-    {   
+    {
         selectedLetter = null;
         if (letterFullPanel != null) letterFullPanel.SetActive(false);
 
@@ -294,7 +348,7 @@ public class InventoryUI : MonoBehaviour
         if (letterFullPanel != null) letterFullPanel.SetActive(false);
         selectedLetter = null;
         currentRecipientHouseID = -1;
-        onDeliveryResultCallback = null;
+        // keep callback reference until caller has been invoked (we clear it in callers)
         isOpenForDelivery = false;
         openedAsGeneralInventory = false;
 
@@ -315,5 +369,62 @@ public class InventoryUI : MonoBehaviour
     public bool IsOpen()
     {
         return inventoryPanel != null && inventoryPanel.activeSelf;
+    }
+
+    // ---------- NEW/HELPER METHODS ----------
+
+    private void AttemptDeliverFromList(LetterData letter)
+    {
+        if (letter == null) return;
+
+        bool success = false;
+        if (LetterDeliverySystem.Instance != null)
+            success = LetterDeliverySystem.Instance.AttemptDeliver(letter, currentRecipientHouseID);
+        else
+            success = (letter.houseID == currentRecipientHouseID);
+
+        if (success)
+        {
+            playerInventory.RemoveLetter(letter);
+            Debug.Log("Delivery success (from list): " + letter.title);
+            var cb = onDeliveryResultCallback;
+            CloseInventory();
+            cb?.Invoke(true, letter);
+        }
+        else
+        {
+            Debug.Log("Delivery failed (from list): " + letter.title);
+            // Close inventory first so dialog system isn't overlapping UI
+            var cb = onDeliveryResultCallback;
+            CloseInventory();
+            cb?.Invoke(false, letter);
+            // keep inventory closed to avoid dialog overlap (fixes the bug you reported)
+        }
+    }
+
+    private string MaskString(string input)
+    {
+        if (string.IsNullOrEmpty(input)) return "";
+
+        var words = input.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+        for (int i = 0; i < words.Length; i++)
+        {
+            string w = words[i];
+            if (w.Length <= 2)
+            {
+                words[i] = "__";
+            }
+            else
+            {
+                words[i] = $"{w[0]}__{w[w.Length - 1]}";
+            }
+        }
+        return string.Join(" ", words);
+    }
+
+    private IEnumerator UnloadUnusedAssetsCoroutine()
+    {
+        yield return Resources.UnloadUnusedAssets();
+        GC.Collect();
     }
 }

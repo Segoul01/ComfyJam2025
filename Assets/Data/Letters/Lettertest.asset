@@ -16,5 +16,6 @@ MonoBehaviour:
   title: i couldnt find a title
   sender: YY
   receiver: XX
+  address: Test1,33sdgfsgsfg
   content: "can we talk about the csvsd\u015Fkgmdfgmdsd\xE7kfnmsd"
   icon: {fileID: 0}

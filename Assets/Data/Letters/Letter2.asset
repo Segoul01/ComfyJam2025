@@ -16,5 +16,6 @@ MonoBehaviour:
   title: me
   sender: lol
   receiver: lmao
+  address: Test1,33werwer
   content: ahahaha
   icon: {fileID: -2514224301147653938, guid: c787643867b22ba418a20824471419b7, type: 3}
