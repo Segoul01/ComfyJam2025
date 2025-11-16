@@ -280,6 +280,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 223634857}
+  - component: {fileID: 223634858}
   m_Layer: 0
   m_Name: -- TrashAndPoles ----->
   m_TagString: Untagged
@@ -296,7 +297,7 @@ Transform:
   m_GameObject: {fileID: 223634856}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -24.6, y: -8.7, z: 0}
+  m_LocalPosition: {x: -24.6, y: -9.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -305,6 +306,21 @@ Transform:
   - {fileID: 368739459}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &223634858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223634856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b651c71b28893d4eb8a9de5d63425c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ParallaxEffect
+  cam: {fileID: 1753265560}
+  parallaxStrength: 0.1
+  repeating: 1
 --- !u!1 &264828300
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,6 +709,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 334711383}
+  - component: {fileID: 334711384}
   m_Layer: 0
   m_Name: -- Benches ----->
   m_TagString: Untagged
@@ -717,6 +734,21 @@ Transform:
   - {fileID: 1891912886}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &334711384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 334711382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b651c71b28893d4eb8a9de5d63425c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ParallaxEffect
+  cam: {fileID: 0}
+  parallaxStrength: 0.05
+  repeating: 1
 --- !u!1 &368739458
 GameObject:
   m_ObjectHideFlags: 0
@@ -2870,6 +2902,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1195970113}
+  - component: {fileID: 1195970114}
   m_Layer: 0
   m_Name: -- PostBoxes ----->
   m_TagString: Untagged
@@ -2896,6 +2929,21 @@ Transform:
   - {fileID: 479197972}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1195970114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195970112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b651c71b28893d4eb8a9de5d63425c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ParallaxEffect
+  cam: {fileID: 1753265560}
+  parallaxStrength: 0.05
+  repeating: 1
 --- !u!1 &1240416165
 GameObject:
   m_ObjectHideFlags: 0
@@ -5087,6 +5135,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2026664108}
+  - component: {fileID: 2026664109}
   m_Layer: 0
   m_Name: -- Houses ----->
   m_TagString: Untagged
@@ -5113,6 +5162,21 @@ Transform:
   - {fileID: 1191177294}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2026664109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026664107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b651c71b28893d4eb8a9de5d63425c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ParallaxEffect
+  cam: {fileID: 0}
+  parallaxStrength: 0.05
+  repeating: 1
 --- !u!1 &2044296441
 GameObject:
   m_ObjectHideFlags: 0
