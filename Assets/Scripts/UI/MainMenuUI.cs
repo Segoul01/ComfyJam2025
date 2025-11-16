@@ -12,7 +12,7 @@ public class MainMenuUI : MonoBehaviour
         var mgr = GetManager();
         if (mgr != null)
         {
-            mgr.LoadScene("IntroCut"); 
+            mgr.LoadNext();
         }
         else
         {

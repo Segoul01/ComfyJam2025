@@ -903,6 +903,8 @@ GameObject:
   - component: {fileID: 865099117}
   - component: {fileID: 865099121}
   - component: {fileID: 865099122}
+  - component: {fileID: 865099123}
+  - component: {fileID: 865099124}
   m_Layer: 5
   m_Name: CutsceneUICanvas
   m_TagString: Untagged
@@ -1031,6 +1033,49 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &865099123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865099116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da0a9d4dbd93f1c48a55a4aec3f75ea1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MainMenuUI
+  nextScene: Game
+--- !u!114 &865099124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865099116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalReceiver
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 7d80349042a62f2499c94491b3ce918d, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 865099123}
+          m_TargetAssemblyTypeName: MainMenuUI, Assembly-CSharp
+          m_MethodName: OnStart
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1021013830
 GameObject:
   m_ObjectHideFlags: 0
@@ -2072,6 +2117,8 @@ PlayableDirector:
     value: {fileID: 20137677}
   - key: {fileID: -4447044388660356826, guid: 6c8aa3d1c7f388a4f85904d78a8065a6, type: 2}
     value: {fileID: 618760630}
+  - key: {fileID: 8664850725428971473, guid: 6c8aa3d1c7f388a4f85904d78a8065a6, type: 2}
+    value: {fileID: 865099124}
   m_ExposedReferences:
     m_References: []
 --- !u!1660057539 &9223372036854775807

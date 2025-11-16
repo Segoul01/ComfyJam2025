@@ -2110,6 +2110,10 @@ PrefabInstance:
       propertyPath: ColorModule.gradient.maxGradient.m_NumAlphaKeys
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8443395518899747043, guid: 910bc2aa5cf68874ea1b20ee217f2ac5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.251
+      objectReference: {fileID: 0}
     - target: {fileID: 8581380372663939209, guid: 910bc2aa5cf68874ea1b20ee217f2ac5, type: 3}
       propertyPath: m_Name
       value: PlayerObject
