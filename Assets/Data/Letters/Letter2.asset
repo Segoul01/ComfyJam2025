@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LetterData
   houseID: 1
   title: me
-  sender: lol
-  receiver: lmao
-  address: Test1,33werwer
+  sender: Mr. and Mrs. Twilight
+  receiver: Mr. and Mrs. Twilight
+  address: ' 658 Nessie Ln Spookchester, BU '
   content: ahahaha
   icon: {fileID: -2514224301147653938, guid: c787643867b22ba418a20824471419b7, type: 3}

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LetterData
   houseID: 4
   title: 
-  sender: 
-  receiver: 
-  address: Test1,33sdfdsgrfhteh
+  sender: Lewis Grimm
+  receiver: Lewis Grimm
+  address: 664 Nessie Ln Spookchester, BU
   content: 
   icon: {fileID: 3748159397465755241, guid: 9768f82e6de409446aa9dd852e06514c, type: 3}

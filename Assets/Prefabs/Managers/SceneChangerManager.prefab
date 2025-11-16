@@ -46,6 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SceneChangerManager
   scenes:
   - Sample
+  - Sample
+  - Sample
   startSceneIndex: 0
   persistAcrossScenes: 1
   fadeCanvasGroup: {fileID: 0}
