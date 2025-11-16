@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -32,6 +33,8 @@ public class PlayerMovementManager : MonoBehaviour
     [Header("Movement Variables")]
     [SerializeField] private float moveForceWalking;
     [SerializeField] private float moveForceSprinting;
+    [SerializeField] private float directionChangeForceMulti = 3f;
+    [SerializeField] private float stopForce = 5f;
     [SerializeField] private float jumpForce;
     [SerializeField] private float maxHorizontalSpeed = 8f;
 
@@ -148,8 +151,16 @@ public class PlayerMovementManager : MonoBehaviour
 
     private void TryMove()
     {
+        float multi;
         SetMoveForce(isSprinting ? moveForceSprinting : moveForceWalking);
-        rb.AddForce(transform.right * moveInput.x * moveForce * Time.deltaTime * 100f, ForceMode2D.Force);
+        multi = (Math.Sign(moveInput.x) != Math.Sign(rb.linearVelocityX)) ? directionChangeForceMulti : 1f;
+
+        if (moveInput.x == 0)
+        {
+            rb.AddForce(transform.right * rb.linearVelocityX * -1 * stopForce * Time.deltaTime * 100f, ForceMode2D.Force);
+        }
+
+        rb.AddForce(transform.right * moveInput.x * moveForce * multi * Time.deltaTime * 100f, ForceMode2D.Force);
     }
 
 
