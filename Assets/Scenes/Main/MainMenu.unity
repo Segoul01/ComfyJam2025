@@ -1687,6 +1687,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 547335716}
+  - component: {fileID: 547335717}
   m_Layer: 0
   m_Name: ======= MANAGERS =======
   m_TagString: Untagged
@@ -1709,6 +1710,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &547335717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547335715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e3b4a170a1393e42a753ac5ebab5438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BGMSetter
+  songScene: MainMenu
 --- !u!1 &561452209
 GameObject:
   m_ObjectHideFlags: 0
@@ -4080,6 +4094,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5256792676612478835, guid: 233a523a8f01d05488317fc018b07e75, type: 3}
+      propertyPath: volumeFadeRate
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5797195538668363395, guid: 233a523a8f01d05488317fc018b07e75, type: 3}
       propertyPath: m_Name
       value: BGMManager
@@ -4376,7 +4394,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da0a9d4dbd93f1c48a55a4aec3f75ea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuUI
-  nextScene: IntroCut
 --- !u!1 &1929374442
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,13 +21,10 @@ public class BGMManager : MonoBehaviour
         if (Instance) Destroy(gameObject);
         else Instance = this;
 
+        DontDestroyOnLoad(gameObject);
+
         if (!audioSource) audioSource = GetComponent<AudioSource>();
         audioSource.volume = 0f;
-    }
-
-    private void Start()
-    {
-        PlayMenuBGM();
     }
 
 
