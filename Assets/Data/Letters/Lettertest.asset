@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LetterData
   houseID: 5
   title: i couldnt find a title
-  sender: YY
-  receiver: XX
-  address: Test1,33sdgfsgsfg
+  sender: Aubrey Everstone
+  receiver: Aubrey Everstone
+  address: 666 Nessie Ln, Spookchester, BU
   content: "can we talk about the csvsd\u015Fkgmdfgmdsd\xE7kfnmsd"
   icon: {fileID: 0}

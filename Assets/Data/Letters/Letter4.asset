@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LetterData
   houseID: 3
   title: I dunno
-  sender: x
-  receiver: y
-  address: Test1,33sdfsdgsfg
+  sender: Emrys Pharaohs
+  receiver: Emrys Pharaohs
+  address: 662 Nessie Ln Spookchester, BU
   content: i Dont Know
   icon: {fileID: 871593509846785301, guid: b434c5aa15ff8ac418e74f38d954479c, type: 3}

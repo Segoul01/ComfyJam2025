@@ -1016,19 +1016,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 282982278}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1840266408}
-        m_TargetAssemblyTypeName: MainMenuUI, Assembly-CSharp
-        m_MethodName: OnExit
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &282982278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1546,24 +1534,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8676822698178681535, guid: 528fece07b1eb824e9ff5d8d5c14c937, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8676822698178681535, guid: 528fece07b1eb824e9ff5d8d5c14c937, type: 3}
       propertyPath: fadeCanvasGroup
       value: 
       objectReference: {fileID: 1132506510}
-    - target: {fileID: 8676822698178681535, guid: 528fece07b1eb824e9ff5d8d5c14c937, type: 3}
-      propertyPath: 'scenes.Array.data[0]'
-      value: MainMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 8676822698178681535, guid: 528fece07b1eb824e9ff5d8d5c14c937, type: 3}
-      propertyPath: 'scenes.Array.data[1]'
-      value: IntroCut
-      objectReference: {fileID: 0}
-    - target: {fileID: 8676822698178681535, guid: 528fece07b1eb824e9ff5d8d5c14c937, type: 3}
-      propertyPath: 'scenes.Array.data[2]'
-      value: Game
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2829,7 +2805,7 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 0
   m_Interactable: 0
-  m_BlocksRaycasts: 0
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!1 &1137298626
 GameObject:
@@ -3538,19 +3514,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1454270928}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1840266408}
-        m_TargetAssemblyTypeName: MainMenuUI, Assembly-CSharp
-        m_MethodName: OnStart
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1454270928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4449,7 +4413,6 @@ GameObject:
   - component: {fileID: 1840266402}
   - component: {fileID: 1840266406}
   - component: {fileID: 1840266407}
-  - component: {fileID: 1840266408}
   m_Layer: 5
   m_Name: MainMenuUICanvas
   m_TagString: Untagged
@@ -4574,18 +4537,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1840266408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1840266401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da0a9d4dbd93f1c48a55a4aec3f75ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MainMenuUI
 --- !u!1 &1929374442
 GameObject:
   m_ObjectHideFlags: 0
