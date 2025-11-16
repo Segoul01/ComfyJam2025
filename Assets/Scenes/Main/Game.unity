@@ -349,7 +349,6 @@ GameObject:
   m_Component:
   - component: {fileID: 279294228}
   - component: {fileID: 279294230}
-  - component: {fileID: 279294229}
   m_Layer: 0
   m_Name: Bench
   m_TagString: Untagged
@@ -372,21 +371,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1891912886}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &279294229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 279294227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b651c71b28893d4eb8a9de5d63425c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ParallaxEffect
-  cam: {fileID: 0}
-  parallaxStrength: 0.1
-  repeating: 1
 --- !u!212 &279294230
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -530,7 +514,6 @@ GameObject:
   m_Component:
   - component: {fileID: 291212942}
   - component: {fileID: 291212943}
-  - component: {fileID: 291212944}
   m_Layer: 0
   m_Name: Castles
   m_TagString: Untagged
@@ -611,21 +594,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &291212944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 291212941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b651c71b28893d4eb8a9de5d63425c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ParallaxEffect
-  cam: {fileID: 0}
-  parallaxStrength: 0.1
-  repeating: 1
 --- !u!1 &320118818
 GameObject:
   m_ObjectHideFlags: 0
@@ -1203,7 +1171,6 @@ GameObject:
   m_Component:
   - component: {fileID: 523947266}
   - component: {fileID: 523947268}
-  - component: {fileID: 523947267}
   m_Layer: 0
   m_Name: Bench
   m_TagString: Untagged
@@ -1226,21 +1193,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1806017937}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &523947267
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 523947265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b651c71b28893d4eb8a9de5d63425c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ParallaxEffect
-  cam: {fileID: 0}
-  parallaxStrength: 0.1
-  repeating: 1
 --- !u!212 &523947268
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1428,14 +1380,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3586012128532466141, guid: 910bc2aa5cf68874ea1b20ee217f2ac5, type: 3}
-      propertyPath: moveForceWalking
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 3586012128532466141, guid: 910bc2aa5cf68874ea1b20ee217f2ac5, type: 3}
-      propertyPath: moveForceSprinting
-      value: 80
-      objectReference: {fileID: 0}
     - target: {fileID: 6120162861287507244, guid: 910bc2aa5cf68874ea1b20ee217f2ac5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1500,7 +1444,6 @@ GameObject:
   m_Component:
   - component: {fileID: 601687616}
   - component: {fileID: 601687618}
-  - component: {fileID: 601687617}
   m_Layer: 0
   m_Name: TrashGRP
   m_TagString: Untagged
@@ -1523,21 +1466,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 368739459}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &601687617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 601687615}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b651c71b28893d4eb8a9de5d63425c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ParallaxEffect
-  cam: {fileID: 0}
-  parallaxStrength: 0.1
-  repeating: 1
 --- !u!212 &601687618
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1637,7 +1565,6 @@ GameObject:
   m_Component:
   - component: {fileID: 755853852}
   - component: {fileID: 755853854}
-  - component: {fileID: 755853853}
   m_Layer: 0
   m_Name: TrashGRP (1)
   m_TagString: Untagged
@@ -1660,21 +1587,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 368739459}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &755853853
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 755853851}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b651c71b28893d4eb8a9de5d63425c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ParallaxEffect
-  cam: {fileID: 0}
-  parallaxStrength: 0.1
-  repeating: 1
 --- !u!212 &755853854
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2457,7 +2369,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1120073902}
   - component: {fileID: 1120073904}
-  - component: {fileID: 1120073903}
   m_Layer: 0
   m_Name: Castles
   m_TagString: Untagged
@@ -2480,21 +2391,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1093248014}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1120073903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1120073901}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b651c71b28893d4eb8a9de5d63425c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ParallaxEffect
-  cam: {fileID: 0}
-  parallaxStrength: 0.1
-  repeating: 1
 --- !u!212 &1120073904
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2563,7 +2459,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1152379824}
   - component: {fileID: 1152379826}
-  - component: {fileID: 1152379825}
   m_Layer: 0
   m_Name: TrashGRP (2)
   m_TagString: Untagged
@@ -2586,21 +2481,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 368739459}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1152379825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1152379823}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b651c71b28893d4eb8a9de5d63425c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ParallaxEffect
-  cam: {fileID: 0}
-  parallaxStrength: 0.1
-  repeating: 1
 --- !u!212 &1152379826
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4063,7 +3943,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1588858924}
-  - component: {fileID: 1588858925}
   m_Layer: 0
   m_Name: TREEGRP-1
   m_TagString: Untagged
@@ -4088,21 +3967,6 @@ Transform:
   - {fileID: 1464109064}
   m_Father: {fileID: 1734325642}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1588858925
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1588858923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b651c71b28893d4eb8a9de5d63425c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ParallaxEffect
-  cam: {fileID: 0}
-  parallaxStrength: 0.5
-  repeating: 1
 --- !u!1 &1672317203
 GameObject:
   m_ObjectHideFlags: 0
@@ -4202,6 +4066,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1734325642}
+  - component: {fileID: 1734325643}
   m_Layer: 0
   m_Name: -- Trees ----->
   m_TagString: Untagged
@@ -4226,6 +4091,21 @@ Transform:
   - {fileID: 514199143}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1734325643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734325641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b651c71b28893d4eb8a9de5d63425c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ParallaxEffect
+  cam: {fileID: 1753265560}
+  parallaxStrength: 0.3
+  repeating: 0
 --- !u!1001 &1753265559
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5218,6 +5098,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2044296442}
+  - component: {fileID: 2044296443}
   m_Layer: 0
   m_Name: -- Castles ----->
   m_TagString: Untagged
@@ -5242,6 +5123,21 @@ Transform:
   - {fileID: 1093248014}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2044296443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044296441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b651c71b28893d4eb8a9de5d63425c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ParallaxEffect
+  cam: {fileID: 1753265560}
+  parallaxStrength: 0.7
+  repeating: 0
 --- !u!1 &2081407250
 GameObject:
   m_ObjectHideFlags: 0
@@ -5252,7 +5148,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2081407251}
   - component: {fileID: 2081407253}
-  - component: {fileID: 2081407252}
   m_Layer: 0
   m_Name: TrashGRP
   m_TagString: Untagged
@@ -5275,21 +5170,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1389924895}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2081407252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2081407250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b651c71b28893d4eb8a9de5d63425c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ParallaxEffect
-  cam: {fileID: 0}
-  parallaxStrength: 0.1
-  repeating: 1
 --- !u!212 &2081407253
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5389,7 +5269,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2098715828}
   - component: {fileID: 2098715830}
-  - component: {fileID: 2098715829}
   m_Layer: 0
   m_Name: Pole
   m_TagString: Untagged
@@ -5412,21 +5291,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1800005998}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2098715829
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2098715827}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b651c71b28893d4eb8a9de5d63425c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ParallaxEffect
-  cam: {fileID: 0}
-  parallaxStrength: 0.1
-  repeating: 1
 --- !u!212 &2098715830
 SpriteRenderer:
   m_ObjectHideFlags: 0

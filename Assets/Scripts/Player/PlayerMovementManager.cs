@@ -2,10 +2,18 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class PlayerMovementManager : MonoBehaviour
 {
     #region Variables And Properties
+
+    // --------------------------------------------------------------------------------------------------
+    // Input Actions
+    // --------------------------------------------------------------------------------------------------
+
+    public UnityEvent didJustLand;
+
 
     // --------------------------------------------------------------------------------------------------
     // Input Actions
@@ -55,7 +63,7 @@ public class PlayerMovementManager : MonoBehaviour
     private Vector2 moveInput;
     private float moveForce;
     private float prevVel = 0f;
-
+    private bool wasGroundedLastFrame = true;
     private float staminaRegenDelayProgress;
 
     private bool isCutscenePlaying;
@@ -225,6 +233,8 @@ public class PlayerMovementManager : MonoBehaviour
 
     private void CheckForGrounded()
     {
+        wasGroundedLastFrame = isGrounded;
+
         isGrounded = Physics2D.Raycast(
             groundCheckTransform.position,
             Vector2.down,
@@ -232,6 +242,13 @@ public class PlayerMovementManager : MonoBehaviour
             whatIsGround
             );
     }
+
+
+    private void CheckIfJustLanded()
+    {
+        if (isGrounded && !wasGroundedLastFrame)    didJustLand.Invoke();
+    }
+
 
     private void UpdateAnimator()
     {
