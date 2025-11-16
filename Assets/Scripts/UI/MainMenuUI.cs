@@ -4,7 +4,7 @@ public class MainMenuUI : MonoBehaviour
 {
     private SceneChangerManager GetManager()
     {
-        return FindObjectOfType<SceneChangerManager>();
+        return FindAnyObjectByType<SceneChangerManager>();
     }
 
     public void OnStart()
@@ -16,7 +16,7 @@ public class MainMenuUI : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("SceneChangerManager bulunamadý.");
+            Debug.LogWarning("SceneChangerManager bulunamadï¿½.");
         }
     }
 
