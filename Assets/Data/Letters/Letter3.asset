@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Letter3
   m_EditorClassIdentifier: Assembly-CSharp::LetterData
   houseID: 2
-  title: 
-  sender: 
-  receiver: 
+  title: Title 1
+  sender: 'Send me '
+  receiver: Rec me
+  address: Test1,33efdsfsdg
   content: 
   icon: {fileID: -3295775604340967451, guid: 4b5cc71957a5d5c42b1567fe743e3a13, type: 3}

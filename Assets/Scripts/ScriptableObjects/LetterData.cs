@@ -7,6 +7,7 @@ public class LetterData : ScriptableObject
     public string title;
     public string sender;
     public string receiver;
+    public string address;
     
     [TextArea(15,20)]
     public string content;
