@@ -112,6 +112,7 @@ public class PlayerMovementManager : MonoBehaviour
     private void Update()
     {
         CheckForGrounded();
+        CheckIfJustLanded();
         CheckForMoveInput();
         CheckForSprintAction();
         CheckForJumpAction();
