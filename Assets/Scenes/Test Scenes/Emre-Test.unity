@@ -1119,7 +1119,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.6666667, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1803324282}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &529426132
 GameObject:
@@ -2201,11 +2201,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7454815414870435472, guid: c7c45fb286f8b82449daa87b9e7825bf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -34.5
+      value: -1.8
       objectReference: {fileID: 0}
     - target: {fileID: 7454815414870435472, guid: c7c45fb286f8b82449daa87b9e7825bf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.8
+      value: -2.3
       objectReference: {fileID: 0}
     - target: {fileID: 7454815414870435472, guid: c7c45fb286f8b82449daa87b9e7825bf, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2296,7 +2296,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1803324277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2488,7 +2488,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 301126975}
-  - {fileID: 525117206}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1803324283
@@ -2537,6 +2536,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf9b9a9ef743a624c98bcd7473aeb4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInventoryManager
+  resourcePath: Letters
+  instantiateRuntimeCopies: 1
+  expectedStartingCount: 6
 --- !u!114 &1803324287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3245,6 +3247,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 6960421400333305909}
+  - {fileID: 525117206}
   - {fileID: 1803324282}
   - {fileID: 5341629157003922570}
   - {fileID: 664075985}
