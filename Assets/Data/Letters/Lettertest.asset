@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b13a725e34e0ffa4f96c9368b9507477, type: 3}
   m_Name: Lettertest
   m_EditorClassIdentifier: Assembly-CSharp::LetterData
-  houseID: 5
+  houseID: 6
   title: i couldnt find a title
   sender: Aubrey Everstone
   receiver: Aubrey Everstone

@@ -6,6 +6,14 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
 
+[Serializable]
+public class DialogueLine
+{
+    public string speaker; // örn: "Aubrey", "Mr. Twilight" veya "{player}"
+    [TextArea(2, 6)]
+    public string text;
+}
+
 public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance { get; private set; }
@@ -20,20 +28,24 @@ public class DialogueManager : MonoBehaviour
     [Tooltip("Delay between characters in seconds (smaller = faster).")]
     public float typingDelay = 0.02f;
 
-    private Queue<string> lines;
+    [Header("Player")]
+    public string playerName = "Aubrey";
+
+    private Queue<DialogueLine> lines;
     private UnityAction onCompleteCallback;
 
-    // typing control
     private Coroutine typingCoroutine;
     private bool isTyping = false;
     private string currentFullLine = "";
+
+    private string defaultSpeaker = null;
 
     private void Awake()
     {
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
 
-        lines = new Queue<string>();
+        lines = new Queue<DialogueLine>();
 
         if (nextButton != null)
             nextButton.onClick.AddListener(ShowNextLine);
@@ -45,19 +57,13 @@ public class DialogueManager : MonoBehaviour
             speakerNameText.gameObject.SetActive(false);
     }
 
-    /// <summary>
-    /// Returns true if the dialogue UI is currently visible.
-    /// </summary>
     public bool IsDialogueActive()
     {
         return dialogPanel != null && dialogPanel.activeSelf;
     }
 
-    /// <summary>
-    /// Start a dialogue with a collection of lines.
-    /// Optional onComplete and optional speakerName (will display on top).
-    /// This overload keeps backwards compatibility.
-    /// </summary>
+
+    // string[] overload - artýk "Speaker: Text" formatýný parse eder ve {player} token'ýný deðiþtirir.
     public void StartDialogue(IEnumerable<string> dialogueLines, UnityAction onComplete = null, string speakerName = null)
     {
         if (dialogueLines == null)
@@ -67,20 +73,38 @@ public class DialogueManager : MonoBehaviour
         }
 
         lines.Clear();
-        foreach (var l in dialogueLines)
-            lines.Enqueue(l);
+
+        foreach (var raw in dialogueLines)
+        {
+            string lineRaw = raw ?? "";
+
+            // Varsayýlan: satýr "Speaker: Text" formatýndaysa ayýr.
+            string parsedSpeaker = null;
+            string parsedText = lineRaw;
+
+            int colonIndex = lineRaw.IndexOf(':');
+            if (colonIndex > 0)
+            {
+                // sol taraf konuþmacý, sað taraf metin
+                string left = lineRaw.Substring(0, colonIndex).Trim();
+                string right = lineRaw.Substring(colonIndex + 1).Trim();
+
+                if (!string.IsNullOrEmpty(right))
+                {
+                    parsedSpeaker = left;
+                    parsedText = right;
+                }
+            }
+
+            if (!string.IsNullOrEmpty(parsedSpeaker) && parsedSpeaker.Contains("{player}"))
+                parsedSpeaker = parsedSpeaker.Replace("{player}", playerName);
+
+            var dlgLine = new DialogueLine { speaker = parsedSpeaker, text = parsedText };
+            lines.Enqueue(dlgLine);
+        }
 
         onCompleteCallback = onComplete;
-
-        if (!string.IsNullOrEmpty(speakerName) && speakerNameText != null)
-        {
-            speakerNameText.text = speakerName;
-            speakerNameText.gameObject.SetActive(true);
-        }
-        else if (speakerNameText != null)
-        {
-            speakerNameText.gameObject.SetActive(false);
-        }
+        defaultSpeaker = speakerName;
 
         if (dialogPanel != null)
             dialogPanel.SetActive(true);
@@ -91,18 +115,54 @@ public class DialogueManager : MonoBehaviour
         ShowNextLine();
     }
 
-    /// <summary>
-    /// Convenience: start a single-line dialogue (keeps signature backward compatible).
-    /// </summary>
-    public void StartSingleLine(string line, UnityAction onComplete = null, string speakerName = null)
+
+
+    public void StartDialogue(IEnumerable<DialogueLine> dialogueLines, UnityAction onComplete = null, string speakerName = null)
     {
-        StartDialogue(new[] { line }, onComplete, speakerName);
+        if (dialogueLines == null)
+        {
+            onComplete?.Invoke();
+            return;
+        }
+
+        lines.Clear();
+        foreach (var l in dialogueLines)
+        {
+            var copy = new DialogueLine { speaker = l?.speaker, text = l?.text ?? "" };
+            if (!string.IsNullOrEmpty(copy.speaker) && copy.speaker.Contains("{player}"))
+                copy.speaker = copy.speaker.Replace("{player}", playerName);
+            lines.Enqueue(copy);
+        }
+
+        onCompleteCallback = onComplete;
+        defaultSpeaker = speakerName;
+
+        if (dialogPanel != null)
+            dialogPanel.SetActive(true);
+
+        if (InputManager.Instance != null)
+            InputManager.Instance.SwitchActionMap("UI");
+
+        ShowNextLine();
     }
 
-    /// <summary>
-    /// Called by Next button or externally to advance.
-    /// If currently typing, this will skip to full line instead of advancing.
-    /// </summary>
+    public void StartSingleLine(string line, UnityAction onComplete = null, string speakerName = null)
+    {
+        StartDialogue(new[] { new DialogueLine { speaker = speakerName, text = line } }, onComplete, speakerName);
+    }
+
+    public void StartSingleLine(DialogueLine singleLine, UnityAction onComplete = null, string speakerName = null)
+    {
+        StartDialogue(new[] { singleLine }, onComplete, speakerName);
+    }
+
+
+    public void SetPlayerName(string name)
+    {
+        playerName = name;
+    }
+
+
     public void ShowNextLine()
     {
         if (isTyping)
@@ -122,8 +182,20 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        string line = lines.Dequeue();
-        StartTypingLine(line);
+        DialogueLine line = lines.Dequeue();
+        // satýr bazýnda konuþmacýyý çöz
+        string speakerToShow = ResolveSpeaker(line.speaker);
+        if (!string.IsNullOrEmpty(speakerToShow) && speakerNameText != null)
+        {
+            speakerNameText.text = speakerToShow;
+            speakerNameText.gameObject.SetActive(true);
+        }
+        else if (speakerNameText != null)
+        {
+            speakerNameText.gameObject.SetActive(false);
+        }
+
+        StartTypingLine(line.text);
     }
 
     private void StartTypingLine(string line)
@@ -149,7 +221,6 @@ public class DialogueManager : MonoBehaviour
             yield return new WaitForSeconds(typingDelay);
         }
 
-        // finished
         isTyping = false;
         typingCoroutine = null;
     }
@@ -173,5 +244,19 @@ public class DialogueManager : MonoBehaviour
 
         onCompleteCallback?.Invoke();
         onCompleteCallback = null;
+        defaultSpeaker = null;
+    }
+
+    private string ResolveSpeaker(string lineSpeaker)
+    {
+        if (!string.IsNullOrEmpty(lineSpeaker))
+        {
+            return lineSpeaker.Replace("{player}", playerName);
+        }
+
+        if (!string.IsNullOrEmpty(defaultSpeaker))
+            return defaultSpeaker.Replace("{player}", playerName);
+
+        return null;
     }
 }

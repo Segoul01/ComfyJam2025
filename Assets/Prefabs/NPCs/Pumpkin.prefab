@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6353148240902494642}
   - component: {fileID: 9120080898085851652}
   - component: {fileID: 8454561703511051126}
+  - component: {fileID: 4386988543800556819}
   m_Layer: 0
   m_Name: Pumpkin
   m_TagString: NPC
@@ -127,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dd6a0156cdf0234cb0f6d1e0aff123d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactable
-  displayName: Scarecrow
+  displayName: Pumpkin
   interactionText: Talk with
   typeTag: NPC
 --- !u!61 &8454561703511051126
@@ -176,3 +177,54 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 4.186881, y: 2.56}
   m_EdgeRadius: 0
+--- !u!114 &4386988543800556819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4637296167602968643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 469751f8003ea334dbc915dc5d6ab46f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCInteraction
+  startDialogueLines:
+  - '{player}: Hi Mr. Grimm!
+
+'
+  - "Lewis: Hi Aubrey. I told you it\u2019s okay to call me Lewis."
+  - '{player}: Okay Mr. Lewie.'
+  - "Lewis: Close enough\u2026Have you got some mail for me."
+  - '{player}: Sure do! Let me grab it.'
+  afterSuccessLines:
+  - 'Lewis: Thank you Aubrey.'
+  - '{player}: No problem Mr. Lewie!'
+  - "Lewis: Aubrey do you think I\u2019m scary?"
+  - '{player}: Not at all! Why do you ask?'
+  - 'Lewis: Well I asked Blaire if she had any way to help me make friends. I think
+    all my neighbors are scared of me.'
+  - "{player}: Well I\u2019m your friend!"
+  - "Lewis: I know, but I\u2019d like some friends my age."
+  - "{player}: I see. Well, have you tried changing your name to Lewie? Maybe you\u2019ll
+    be less intimidating!"
+  - "Lewis: \u2026I\u2019m gonna read Blaire\u2019s letter."
+  - '{player}: Suit yourself Mr. Lewie!'
+  - '{player}: Lewis opens and reads the letter.'
+  - "Lewis: She\u2019s offering to give me a makeover\u2026?"
+  - '{player}:  Ooo! That sounds fun! Can I help?'
+  - 'Lewis: Absolutely not.'
+  - "{player}: Well then I guess I\u2019ll give you guys some privacy. "
+  - 'Lewis: Hey! What do you mean by that?'
+  - '{player}:  Oh nothing. Anyways, I have to go! See you!'
+  - "Lewis: This kid\u2026"
+  - "{player}: Well it looks like that\u2019s all the letters! I better get back
+    to Ms. Blaire\u2019s house!"
+  afterFailLines:
+  - "Lewis: This doesn\u2019t look like it\u2019s for me."
+  - '{player}: Whoops! Let me find the right one.'
+  alreadyGivenLines:
+  - "Lewis: This kid\u2026"
+  afterTalkLines: []
+  houseID: 5
+  acceptsLetters: 1

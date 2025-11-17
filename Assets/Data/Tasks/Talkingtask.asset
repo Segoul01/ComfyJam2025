@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TaskDefinition
   taskID: talking
   title: Talk with tom
-  description: talking with tom
+  description: Talk with the Witch
   taskType: 1
   targetCount: 1
   useHouseID: 0
   targetHouseID: -1
-  targetNPCName: Joe (Little Kid)
+  targetNPCName: Witch
   activateOnComplete: []
   deactivateOnComplete:
   - {fileID: 0}

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3294172945735279584}
   - component: {fileID: 2089369573814255556}
   - component: {fileID: 327595469705507962}
+  - component: {fileID: 4057317180434548265}
   m_Layer: 0
   m_Name: Scarecrow
   m_TagString: NPC
@@ -176,3 +177,59 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 4.2170334, y: 2.56}
   m_EdgeRadius: 0
+--- !u!114 &4057317180434548265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6987604117590703134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 469751f8003ea334dbc915dc5d6ab46f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCInteraction
+  startDialogueLines:
+  - 'Crowley: Hi Aubrey. '
+  - "{player}: Hi Crowley! What are you doing standing out here? Isn\u2019t it your
+    day off?"
+  - "Crowley: \u2026Yeah you\u2019re right. "
+  - '{player}: Are you feeling okay?'
+  - "Crowley: Yeah I\u2019m just a little out of it."
+  - '{player}: Oh no!'
+  - 'Crowley: Oh that reminds me. Do you happen to have a letter for me from Blaire?'
+  - "{player}:  Let me look! It seems like one of her spells mixed around the names
+    on her letters so i\u2019ve been trying to decipher them."
+  - "Crowley: That sucks kiddo. I\u2019ve been having a hard time at my job too."
+  - "{player}: Is that what you\u2019ve written to Ms. Blaire about?"
+  - 'Crowley: Yeah. I know I''m a scarecrow and all but I''m getting real stiff and
+    sore from all this standing.'
+  - '{player}: Have you tried getting a massage?'
+  - 'Crowley: Hard to massage a bundle of sticks and straw. Hah.'
+  - "{player}:  I guess you're right. Well I\u2019m sure Ms. Blaire has a solution!
+    She\u2019s the most talented witch I know!"
+  - 'Crowley: Yeah I hope so too.'
+  - '{player}: Let me find that letter!'
+  afterSuccessLines:
+  - 'Crowley: Looks about right. Good job kiddo.'
+  - '{player}: No problem!'
+  - '{player}: Crowley opens the letter and reads it quietly.'
+  - "Crowley: She said she has some spells I can choose from\u2026Should I go with
+    the energy spell or the endurance spell? Can\u2019t I just use both?"
+  - "{player}:  No\u2026Using too many spells at once can cause the opposite reaction."
+  - "Crowley: That makes sense. I guess I\u2019ll try and get my rest and go with
+    the endurance spell to keep me going at work."
+  - "{player}: Good choice! If it doesn\u2019t meet your expectations just let Ms.
+    Blaire know and she can help you out! "
+  - 'Crowley: I will. Thanks Aubrey. Good luck with the rest of your deliveries.'
+  - '{player}: Thanks!'
+  afterFailLines:
+  - "Crowley: I might be a bit tired but I don\u2019t think these letters spell my
+    name."
+  - '{player}: Oops. Wrong one!'
+  alreadyGivenLines:
+  - 'Crowley: Thanks Aubrey. Good luck with the rest of your deliveries.'
+  - '{player}: Thanks!'
+  afterTalkLines: []
+  houseID: 3
+  acceptsLetters: 1

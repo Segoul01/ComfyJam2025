@@ -438,15 +438,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCInteraction
   startDialogueLines:
-  - Hello my name is x. Can I Help You?
-  - this is my second dialog in case we wanna talk ahahah
+  - 'Mr. Twilight: Good evening Aubrey! I''ll get it, honey.'
+  - "{player}: Bug\xFCn \xE7ok i\u015Fim var."
   - Okay give me my letter
   afterSuccessLines:
-  - (succesfull) i guess i need to talk with x..
+  - i guess i need to talk with x..
   - thank you for the fast delivery!!
   afterFailLines:
   - you gave me the wrong letter i guess
-  - this was not supposed to be this hard :(
+  - this was not supposed to be this hard
   alreadyGivenLines:
   - Thanks, you've already given me my mail!
   afterTalkLines: []
@@ -871,10 +871,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pumpkin
       objectReference: {fileID: 0}
-    - target: {fileID: 9120080898085851652, guid: 063f3e97ed843a14da3896050c320228, type: 3}
-      propertyPath: displayName
-      value: Pumpkin
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -885,6 +881,109 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2521573205966851659, guid: 063f3e97ed843a14da3896050c320228, type: 3}
   m_PrefabInstance: {fileID: 404979839}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &521657203
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 521657205}
+  - component: {fileID: 521657204}
+  - component: {fileID: 521657206}
+  m_Layer: 0
+  m_Name: Talking-myself
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &521657204
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521657203}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 3.0262709, y: -1.2157948}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 7.0525417, y: 3.4315896}
+  m_EdgeRadius: 0
+--- !u!4 &521657205
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521657203}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 19.22293, y: -0.50983, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &521657206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521657203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc38fa033995c943a09759a09733f6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
+  dialogueLines:
+  - speaker: Aubrey
+    text: "I can\u2019t believe I got caught up in so much work. Ms. Blaire is going
+      to toss me into her witch\u2019s brew if I don\u2019t deliver these letters
+      on time!"
+  - speaker: Aubrey
+    text: Come on Puffle. We have to hurry!
+  triggerOnce: 1
+  usePlayerAsDefaultSpeaker: 1
+  onTriggered:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &525117202
 GameObject:
   m_ObjectHideFlags: 0
@@ -2224,6 +2323,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8eb8acccef0ed541a3f87131a440184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovementManager
+  didJustLand:
+    m_PersistentCalls:
+      m_Calls: []
   rb: {fileID: 1803324279}
   groundCheckTransform: {fileID: 301126975}
   animator: {fileID: 1803324283}
@@ -2923,6 +3025,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebe4ea5450d091346b2d436877ba159d, type: 3}
+--- !u!1001 &5341629157003922570
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6120162861287507244, guid: 910bc2aa5cf68874ea1b20ee217f2ac5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120162861287507244, guid: 910bc2aa5cf68874ea1b20ee217f2ac5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120162861287507244, guid: 910bc2aa5cf68874ea1b20ee217f2ac5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120162861287507244, guid: 910bc2aa5cf68874ea1b20ee217f2ac5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120162861287507244, guid: 910bc2aa5cf68874ea1b20ee217f2ac5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120162861287507244, guid: 910bc2aa5cf68874ea1b20ee217f2ac5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120162861287507244, guid: 910bc2aa5cf68874ea1b20ee217f2ac5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120162861287507244, guid: 910bc2aa5cf68874ea1b20ee217f2ac5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120162861287507244, guid: 910bc2aa5cf68874ea1b20ee217f2ac5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120162861287507244, guid: 910bc2aa5cf68874ea1b20ee217f2ac5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8581380372663939209, guid: 910bc2aa5cf68874ea1b20ee217f2ac5, type: 3}
+      propertyPath: m_Name
+      value: PlayerObject (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 910bc2aa5cf68874ea1b20ee217f2ac5, type: 3}
 --- !u!1001 &6828609386231760714
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2934,6 +3093,10 @@ PrefabInstance:
     - target: {fileID: 883288271382292583, guid: 528fece07b1eb824e9ff5d8d5c14c937, type: 3}
       propertyPath: m_Name
       value: SceneChangerManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 883288271382292583, guid: 528fece07b1eb824e9ff5d8d5c14c937, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4357474815039543507, guid: 528fece07b1eb824e9ff5d8d5c14c937, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3083,6 +3246,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 6960421400333305909}
   - {fileID: 1803324282}
+  - {fileID: 5341629157003922570}
   - {fileID: 664075985}
   - {fileID: 876721410}
   - {fileID: 164146573}
@@ -3101,3 +3265,4 @@ SceneRoots:
   - {fileID: 529426137}
   - {fileID: 812492346}
   - {fileID: 223731337}
+  - {fileID: 521657205}

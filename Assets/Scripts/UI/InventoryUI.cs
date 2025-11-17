@@ -348,7 +348,6 @@ public class InventoryUI : MonoBehaviour
         if (letterFullPanel != null) letterFullPanel.SetActive(false);
         selectedLetter = null;
         currentRecipientHouseID = -1;
-        // keep callback reference until caller has been invoked (we clear it in callers)
         isOpenForDelivery = false;
         openedAsGeneralInventory = false;
 

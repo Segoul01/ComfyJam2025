@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1211170739705173041}
   - component: {fileID: 6710688482508193038}
   - component: {fileID: 4254887119985861466}
+  - component: {fileID: 6743154004284561337}
   m_Layer: 0
   m_Name: Couple
   m_TagString: NPC
@@ -176,3 +177,61 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3.7484732, y: 2.56}
   m_EdgeRadius: 0
+--- !u!114 &6743154004284561337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5064835746936789232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 469751f8003ea334dbc915dc5d6ab46f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCInteraction
+  startDialogueLines:
+  - '{player}: Hi Mr. and Mrs. Twilight! I have some mail from Ms. Blaire!'
+  - "Mr. Twilight: Good evening Aubrey! I\u2019ll get it honey."
+  - "Mrs. Twilight: No you won\u2019t. The sun hasn\u2019t set yet. I\u2019ll get
+    it."
+  afterSuccessLines:
+  - "Mrs. Twilight: Yep. That\u2019s us."
+  - 'Mr. Twilight: What does it say? Can you read it out?'
+  - 'Mrs. Twilight: One second darling.'
+  - "{player}: If you don\u2019t mind me asking, what did you ask Ms. Blaire about?"
+  - "Mrs. Twilight: Oh just something to help my husband get out of the house. He
+    can\u2019t stay cooped up in the basement forever."
+  - 'Mr. Twilight: I hate that days are so much longer than nights. I barely have
+    enough time for a leisurely walk.'
+  - "Mrs. Twilight: Anyways, we were hoping Blaire would have a solution, even if
+    it\u2019s temporary."
+  - "Mr. Twilight: Anything is better than the layers of SPF 200 sunscreen and an
+    umbrella\u2026"
+  - "{player}: Well Ms. Blaire is the smartest witch around! I\u2019m sure she\u2019ll
+    have a solution."
+  - '{player}: Mrs. Twilight opens the letter and reads it.'
+  - 'Mrs. Twilight: Hmm. '
+  - "Mr. Twilight: What\u2019s wrong dear?"
+  - "Mrs. Twilight: Oh nothing. She says she can mix up an elixir for you tomorrow.
+    She just doesn\u2019t know how effective it will be."
+  - "Mr. Twilight: Well I don\u2019t mind being a test subject."
+  - "Mrs. Twilight: Of course you don\u2019t. "
+  - "{player}: I\u2019m sure she\u2019s just joking. She can make elixirs and spells
+    for everything!"
+  - "Mrs. Twilight: Well Aubrey, since you\u2019re heading there anyways, just let
+    Blaire know that we\u2019ll come stop by to pick up that elixir tomorrow night
+    after the sun sets."
+  - '{player}: Of course Mrs. Twilight! I have to get going but have a good night!
+    Bye Mr. Twilight!'
+  - '{player}: Of course Mrs. Twilight! I have to get going but have a good night!
+    Bye Mr. Twilight!'
+  afterFailLines:
+  - "{player}: I don\u2019t think this is the right letter\u2026Let me check again"
+  alreadyGivenLines:
+  - 'Mr. Twilight: Bye Aubrey! Stay safe okay?'
+  - "Mrs. Twilight: I don\u2019t want to hear from Blaire that you\u2019re getting
+    into trouble again."
+  - "{player}: Yes Mrs. Twilight\u2026"
+  afterTalkLines: []
+  houseID: 2
+  acceptsLetters: 1

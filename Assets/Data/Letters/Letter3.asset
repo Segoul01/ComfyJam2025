@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b13a725e34e0ffa4f96c9368b9507477, type: 3}
   m_Name: Letter3
   m_EditorClassIdentifier: Assembly-CSharp::LetterData
-  houseID: 2
+  houseID: 3
   title: Title 1
   sender: Crowley Ravenwood
   receiver: Crowley Ravenwood

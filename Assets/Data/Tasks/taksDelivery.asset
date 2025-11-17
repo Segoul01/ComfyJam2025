@@ -16,13 +16,13 @@ MonoBehaviour:
   title: Delivery
   description: Deliver all of the letters
   taskType: 0
-  targetCount: 2
+  targetCount: 6
   useHouseID: 0
   targetHouseID: -1
   targetNPCName: '""'
-  activateOnComplete: []
-  deactivateOnComplete:
+  activateOnComplete:
   - {fileID: 0}
+  deactivateOnComplete: []
   sceneToLoad: 
   loadSceneOnComplete: 0
   onCompleteEvent:

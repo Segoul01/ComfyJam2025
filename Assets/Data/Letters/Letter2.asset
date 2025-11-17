@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b13a725e34e0ffa4f96c9368b9507477, type: 3}
   m_Name: Letter2
   m_EditorClassIdentifier: Assembly-CSharp::LetterData
-  houseID: 1
+  houseID: 2
   title: me
   sender: Mr. and Mrs. Twilight
   receiver: Mr. and Mrs. Twilight
