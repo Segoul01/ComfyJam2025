@@ -393,11 +393,9 @@ public class InventoryUI : MonoBehaviour
         else
         {
             Debug.Log("Delivery failed (from list): " + letter.title);
-            // Close inventory first so dialog system isn't overlapping UI
             var cb = onDeliveryResultCallback;
             CloseInventory();
             cb?.Invoke(false, letter);
-            // keep inventory closed to avoid dialog overlap (fixes the bug you reported)
         }
     }
 

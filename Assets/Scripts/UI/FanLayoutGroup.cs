@@ -24,9 +24,8 @@ public class FanLayoutGroup : LayoutGroup
     public override void SetLayoutHorizontal() { LayoutChildren(); }
     public override void SetLayoutVertical() { LayoutChildren(); }
 
-    protected override void OnValidate()
+    protected virtual void OnValidate()
     {
-        base.OnValidate();
         if (radius <= 0f) radius = 120f;
         if (spreadAngle < 0f) spreadAngle = Mathf.Abs(spreadAngle);
         MarkLayoutForRebuild();
@@ -39,7 +38,6 @@ public class FanLayoutGroup : LayoutGroup
         int count = rectChildren.Count;
         if (count == 0) return;
 
-        // Compute baseline (y position where card bottoms should sit).
         float parentHalfHeight = rectTransform.rect.height * 0.5f;
         float baseline = -parentHalfHeight + parentHalfHeight + baselineOffset;
 
@@ -68,7 +66,6 @@ public class FanLayoutGroup : LayoutGroup
             return;
         }
 
-        // Multiple children -> fan layout
         for (int i = 0; i < count; i++)
         {
             RectTransform child = rectChildren[i];

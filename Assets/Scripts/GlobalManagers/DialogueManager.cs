@@ -63,7 +63,6 @@ public class DialogueManager : MonoBehaviour
     }
 
 
-    // string[] overload - artýk "Speaker: Text" formatýný parse eder ve {player} token'ýný deðiþtirir.
     public void StartDialogue(IEnumerable<string> dialogueLines, UnityAction onComplete = null, string speakerName = null)
     {
         if (dialogueLines == null)
@@ -78,14 +77,12 @@ public class DialogueManager : MonoBehaviour
         {
             string lineRaw = raw ?? "";
 
-            // Varsayýlan: satýr "Speaker: Text" formatýndaysa ayýr.
             string parsedSpeaker = null;
             string parsedText = lineRaw;
 
             int colonIndex = lineRaw.IndexOf(':');
             if (colonIndex > 0)
             {
-                // sol taraf konuþmacý, sað taraf metin
                 string left = lineRaw.Substring(0, colonIndex).Trim();
                 string right = lineRaw.Substring(colonIndex + 1).Trim();
 

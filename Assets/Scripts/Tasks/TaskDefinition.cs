@@ -33,5 +33,5 @@ public class TaskDefinition : ScriptableObject
     public string sceneToLoad;
     public bool loadSceneOnComplete = false;
 
-    public UnityEvent onCompleteEvent; // custom inspector-assignable actions
+    public UnityEvent onCompleteEvent;
 }

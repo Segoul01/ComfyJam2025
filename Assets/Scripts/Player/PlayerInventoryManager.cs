@@ -6,14 +6,11 @@ public class PlayerInventoryManager : MonoBehaviour
     private List<LetterData> letters = new List<LetterData>();
 
     [Header("Auto-fill from Resources (if startingLetters empty)")]
-    [Tooltip("Resources altýnda hangi klasörden LetterData yüklensin. Örn: 'Letters' => Assets/Resources/Letters")]
     public string resourcePath = "Letters";
 
-    [Tooltip("Eðer true ise Resources'taki LetterData assetlerini runtime kopyasý (Instantiate) olarak ekler. Önerilir: true.")]
     public bool instantiateRuntimeCopies = true;
 
     [Header("Debug / Safety")]
-    [Tooltip("Yüklendikten sonra minimum beklenen mektup sayýsý (eðer azsa uyarýr).")]
     public int expectedStartingCount = 6;
 
     public List<LetterData> GetLetters() => letters;

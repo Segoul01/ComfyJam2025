@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class OutroController : MonoBehaviour
 {
-    public PlayableDirector director;            // assign in inspector veya GetComponent ile al
+    public PlayableDirector director;
     public string mainMenuSceneName = "MainMenu";
 
     void Start()
