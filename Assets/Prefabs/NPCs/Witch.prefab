@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5243822864146705200}
   - component: {fileID: 5747770635695082734}
   - component: {fileID: 939031226161481777}
+  - component: {fileID: 7232722652387738027}
   m_Layer: 0
   m_Name: Witch
   m_TagString: NPC
@@ -176,3 +177,30 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3.5496898, y: 2.56}
   m_EdgeRadius: 0
+--- !u!114 &7232722652387738027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5181091321909594076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 469751f8003ea334dbc915dc5d6ab46f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCInteraction
+  startDialogueLines:
+  - "Witch: Oh? You\u2019re back\u2026 and empty-handed\u2014\nexcept for that one
+    letter."
+  - 'Witch: So you delivered them all.
+
+    I knew you would.'
+  - "Witch: This last one\u2026 it\u2019s different.\nI didn\u2019t want you to open
+    it alone."
+  - "Witch: Come, apprentice.\nLet\u2019s open the final letter together."
+  afterSuccessLines: []
+  afterFailLines: []
+  alreadyGivenLines: []
+  afterTalkLines: []
+  houseID: -1
+  acceptsLetters: 0

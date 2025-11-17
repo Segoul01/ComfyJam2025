@@ -47,10 +47,28 @@ public class DialogueTrigger : MonoBehaviour
         if (other == null) return;
         if (!other.CompareTag("Player")) return;
 
+        if (InputManager.Instance != null)
+        {
+            InputManager.Instance.DisableAllInputs();
+            InputManager.Instance.SwitchActionMap("UI");
+
+
+        }
+
         if (DialogueManager.Instance != null)
         {
             string defaultSpeaker = usePlayerAsDefaultSpeaker ? DialogueManager.Instance.playerName : null;
-            DialogueManager.Instance.StartDialogue(dialogueLines, null, defaultSpeaker);
+
+            UnityEngine.Events.UnityAction onComplete = () =>
+            {
+            };
+
+            DialogueManager.Instance.StartDialogue(dialogueLines, onComplete, defaultSpeaker);
+        }
+        else
+        {
+            if (InputManager.Instance != null)
+                InputManager.Instance.SwitchActionMap("Player");
         }
 
         onTriggered?.Invoke();

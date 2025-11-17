@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Talkingtask
   m_EditorClassIdentifier: Assembly-CSharp::TaskDefinition
   taskID: talking
-  title: Talk with tom
+  title: Talk with the Witch
   description: Talk with the Witch
   taskType: 1
   targetCount: 1
@@ -23,8 +23,8 @@ MonoBehaviour:
   activateOnComplete: []
   deactivateOnComplete:
   - {fileID: 0}
-  sceneToLoad: 
-  loadSceneOnComplete: 0
+  sceneToLoad: OutroCut
+  loadSceneOnComplete: 1
   onCompleteEvent:
     m_PersistentCalls:
       m_Calls: []

@@ -1324,11 +1324,27 @@ PrefabInstance:
       value: deliver_letters
       objectReference: {fileID: 0}
     - target: {fileID: 2905296001229615533, guid: 09a6879c1177e3d49808083473e73f38, type: 3}
+      propertyPath: sceneBindings.Array.data[1].taskID
+      value: talking
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905296001229615533, guid: 09a6879c1177e3d49808083473e73f38, type: 3}
       propertyPath: sceneBindings.Array.data[0].activateOnComplete.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2905296001229615533, guid: 09a6879c1177e3d49808083473e73f38, type: 3}
+      propertyPath: sceneBindings.Array.data[1].activateOnComplete.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905296001229615533, guid: 09a6879c1177e3d49808083473e73f38, type: 3}
       propertyPath: 'sceneBindings.Array.data[0].activateOnComplete.Array.data[0]'
+      value: 
+      objectReference: {fileID: 4007520784801477386}
+    - target: {fileID: 2905296001229615533, guid: 09a6879c1177e3d49808083473e73f38, type: 3}
+      propertyPath: 'sceneBindings.Array.data[0].activateOnComplete.Array.data[1]'
+      value: 
+      objectReference: {fileID: 4007520784801477386}
+    - target: {fileID: 2905296001229615533, guid: 09a6879c1177e3d49808083473e73f38, type: 3}
+      propertyPath: 'sceneBindings.Array.data[1].activateOnComplete.Array.data[0]'
       value: 
       objectReference: {fileID: 4007520784801477386}
     - target: {fileID: 6932960045066953139, guid: 09a6879c1177e3d49808083473e73f38, type: 3}
