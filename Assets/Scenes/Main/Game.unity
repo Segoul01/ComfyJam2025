@@ -4043,6 +4043,7 @@ GameObject:
   - component: {fileID: 1006600872}
   - component: {fileID: 1006600871}
   - component: {fileID: 1006600870}
+  - component: {fileID: 1006600873}
   m_Layer: 5
   m_Name: Back Button
   m_TagString: Untagged
@@ -4164,6 +4165,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1006600868}
   m_CullTransparentMesh: 1
+--- !u!114 &1006600873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006600868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d1ec65341a080545aa816d03a32dd17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonClickSfx
 --- !u!1 &1008369534
 GameObject:
   m_ObjectHideFlags: 0

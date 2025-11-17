@@ -143,3 +143,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SFXManager
   audioSource: {fileID: 1374427802627457435}
+  clicks:
+  - {fileID: 8300000, guid: 833ee4f40c772164a9d4057b136a2005, type: 3}
+  - {fileID: 8300000, guid: 708c6760e9b43f445806b93443b80895, type: 3}
+  - {fileID: 8300000, guid: 9e0dfaadea94a3242a536c637ee736ff, type: 3}
+  - {fileID: 8300000, guid: a91b14dcc82dc36429a9225e6fceac1e, type: 3}
+  - {fileID: 8300000, guid: bd0884224632cdd43b32080bd1cab2f2, type: 3}
