@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactable
   displayName: Scarecrow
-  interactionText: Talk with
+  interactionText: '[E] Talk with'
   typeTag: NPC
 --- !u!61 &327595469705507962
 BoxCollider2D:

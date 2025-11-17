@@ -47,9 +47,22 @@ MonoBehaviour:
   tasks:
   - {fileID: 11400000, guid: cc6396f2459fc024d909319be55adab1, type: 2}
   - {fileID: 11400000, guid: 8908ada5960517746830ad2e1eebc024, type: 2}
+  sceneBindings:
+  - taskID: deliver_letters
+    activateOnComplete:
+    - {fileID: 0}
+    deactivateOnComplete: []
+  sequentialMode: 1
+  startIndex: 0
+  OnTaskActivated:
+    m_PersistentCalls:
+      m_Calls: []
   OnTaskProgressUpdated:
     m_PersistentCalls:
       m_Calls: []
   OnTaskCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAllTasksCompleted:
     m_PersistentCalls:
       m_Calls: []

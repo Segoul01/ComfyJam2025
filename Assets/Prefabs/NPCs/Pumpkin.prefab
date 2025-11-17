@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactable
   displayName: Pumpkin
-  interactionText: Talk with
+  interactionText: '[E] Talk with'
   typeTag: NPC
 --- !u!61 &8454561703511051126
 BoxCollider2D:

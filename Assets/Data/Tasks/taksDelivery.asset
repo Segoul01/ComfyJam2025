@@ -16,7 +16,7 @@ MonoBehaviour:
   title: Delivery
   description: Deliver all of the letters
   taskType: 0
-  targetCount: 3
+  targetCount: 5
   useHouseID: 0
   targetHouseID: -1
   targetNPCName: '""'

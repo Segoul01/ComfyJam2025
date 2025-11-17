@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactable
   displayName: Couple
-  interactionText: Talk with
+  interactionText: '[E] Talk with'
   typeTag: NPC
 --- !u!61 &4254887119985861466
 BoxCollider2D:
