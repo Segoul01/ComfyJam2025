@@ -766,6 +766,7 @@ GameObject:
   - component: {fileID: 5001337419034169248}
   - component: {fileID: 4316674284236098304}
   - component: {fileID: 978526856667785568}
+  - component: {fileID: 7182804630224904244}
   m_Layer: 5
   m_Name: GiveButton
   m_TagString: Untagged
@@ -875,6 +876,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7182804630224904244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3155064027868578437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d1ec65341a080545aa816d03a32dd17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonClickSfx
 --- !u!1 &3317974429165605505
 GameObject:
   m_ObjectHideFlags: 0
@@ -887,6 +900,7 @@ GameObject:
   - component: {fileID: 6795551687209311699}
   - component: {fileID: 7227618867201939902}
   - component: {fileID: 4912396670855942061}
+  - component: {fileID: 5014752428158463024}
   m_Layer: 5
   m_Name: NextButton
   m_TagString: Untagged
@@ -995,6 +1009,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5014752428158463024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3317974429165605505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d1ec65341a080545aa816d03a32dd17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonClickSfx
 --- !u!1 &3549157644786993773
 GameObject:
   m_ObjectHideFlags: 0
@@ -1007,6 +1033,7 @@ GameObject:
   - component: {fileID: 6438772502692975454}
   - component: {fileID: 5340496011289679960}
   - component: {fileID: 4395146300385594660}
+  - component: {fileID: 3543640658414942302}
   m_Layer: 5
   m_Name: CancelButton
   m_TagString: Untagged
@@ -1116,6 +1143,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3543640658414942302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3549157644786993773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d1ec65341a080545aa816d03a32dd17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonClickSfx
 --- !u!1 &3666154828455628664
 GameObject:
   m_ObjectHideFlags: 0
@@ -2278,10 +2317,10 @@ RectTransform:
   - {fileID: 1241444011561632708}
   m_Father: {fileID: 6042489988458079119}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 321.00366, y: -313}
-  m_SizeDelta: {x: -1619.4879, y: -1016.3765}
+  m_SizeDelta: {x: 300.5121, y: 63.623474}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &372780134384747974
 CanvasRenderer:
